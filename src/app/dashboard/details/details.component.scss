@@ -1,0 +1,25 @@
+.details-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+p {
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: #5db6f1;
+  margin: 10px;
+}
+.profile-picture-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    min-height: 100%;
+  }
+}

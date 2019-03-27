@@ -1,0 +1,25 @@
+.nav-bar {
+  // position: fixed;
+  width: 100%;
+  height: 50px;
+  background-color: rgba($color: #000000, $alpha: 0.25);
+  // background-color: #8a8a8a;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  .icon {
+    transition: all 0.33s;
+    img {
+      height: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+.icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

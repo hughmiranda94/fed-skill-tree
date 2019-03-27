@@ -1,0 +1,52 @@
+<div class="leaf-detail">
+  <h1>{{ leafInfo.title }}</h1>
+  <div class="proficiency-level">
+    <h2>Proficiency Level</h2>
+    <app-proficiency-level
+      [level]="userProficiencyLevel"
+      (proficiencyLevel)="setProficiencyLevelOnLeaf($event)"
+    ></app-proficiency-level>
+  </div>
+
+  <div class="references">
+    <h2>References</h2>
+    <div class="cards">
+      <div class="ref-card videos">
+        <h3>Videos</h3>
+        <ul *ngIf="leafInfo.references">
+          <li *ngFor="let video of leafInfo.references.videos">
+            <a href="https://{{ video }}">{{ video }}</a>
+          </li>
+        </ul>
+        <p *ngIf="!leafInfo.references">No videos to show</p>
+      </div>
+      <div class="ref-card trainings">
+        <h3>Trainings</h3>
+        <ul *ngIf="leafInfo.references">
+          <li *ngFor="let training of leafInfo.references.trainings">
+            <a href="https://{{ training }}">{{ training }}</a>
+          </li>
+        </ul>
+        <p *ngIf="!leafInfo.references">No trainings to show</p>
+      </div>
+      <div class="ref-card articles">
+        <h3>Articles</h3>
+        <ul *ngIf="leafInfo.references">
+          <li *ngFor="let article of leafInfo.references.articles">
+            <a href="https://{{ article }}">{{ article }}</a>
+          </li>
+        </ul>
+        <p *ngIf="!leafInfo.references">No articles to show</p>
+      </div>
+      <div class="ref-card blogs">
+        <h3>Blogs</h3>
+        <ul *ngIf="leafInfo.references">
+          <li *ngFor="let blog of leafInfo.references.blogs">
+            <a href="https://{{ blog }}">{{ blog }}</a>
+          </li>
+        </ul>
+        <p *ngIf="!leafInfo.references">No blogs to show</p>
+      </div>
+    </div>
+  </div>
+</div>

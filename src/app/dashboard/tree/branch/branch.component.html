@@ -1,0 +1,10 @@
+
+<div class="branch">
+  <p class="name">{{branch.name}}</p>
+  <p class="percentage">{{getBranchCompletion() | percent}}</p>
+  <div class="leaf-container" *ngFor="let leaf of branch.leaves; let i = index" >
+      <app-leaf [leafInfo]=leaf routerLink="/detail/{{leaf.id}}"></app-leaf>
+      <!-- <app-leaf [leafInfo]=leaf (click)="onClick(leaf.id)"  routerLink="/detail/{{leaf.id}}"></app-leaf> -->
+      <app-separator *ngIf="i!==(branch.leaves.length-1)"></app-separator>
+  </div>  
+</div>
