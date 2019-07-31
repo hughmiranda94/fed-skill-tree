@@ -1,0 +1,62 @@
+@import "../../styles/constants";
+
+header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+
+  .header-title {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+
+    .titles {
+      margin: 0rem 1rem;
+
+      h1 {
+        color: $fee-white;
+        font-size: 3rem;
+        margin: 0 0 1rem 0;
+      }
+
+      p {
+        color: $fee-bluesky;
+        font-size: 1.5rem;
+      }
+    }
+
+    .blub {
+      border-radius: 50%;
+      background-image: radial-gradient($fee-cyan-light, $fee-cyan);
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+      box-shadow: 0 0 1rem rgba($fee-cyan, 0.5);
+      margin-top: 0.5rem;
+    }
+  }
+
+  input {
+    background-color: transparent;
+    color: $fee-white;
+    width: 20rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid $fee-gray-border;
+    padding: 0 1rem;
+    transition: all 0.25s;
+
+    &::placeholder {
+      color:$fee-white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 1rem rgba($fee-white, 0.25);
+      outline: none;
+    }
+  }
+}

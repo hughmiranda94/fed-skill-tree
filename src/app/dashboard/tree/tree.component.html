@@ -1,3 +1,5 @@
 <div class="tree">
-  <app-branch *ngFor="let branch of data.branches" [branch] = branch (emission)="onEmission($event)"></app-branch>
+  <!-- <app-branch *ngFor="let branch of data.branches" [branch] = branch (emission)="onEmission($event)"></app-branch> -->
+  <app-technology-branch *ngFor="let technologyBranch of data.technologies" [technologyBranch] = technologyBranch>
+  </app-technology-branch>
 </div>

@@ -1,0 +1,9 @@
+<h2 class="technology-name">
+  {{selectedTechnology.name}}
+</h2>
+<p class="technology-description">
+  {{selectedTechnology.description}}
+</p>
+<section class="skill-cards">
+    <app-skill-card *ngFor="let topic of getTopics()" [skillCardInfo]=topic (click)="onSelectTechnology(topic.id)"></app-skill-card>
+</section>

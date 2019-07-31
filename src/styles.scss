@@ -1,6 +1,11 @@
+@import "../src/app/styles/constants";
 /* You can add global styles to this file, and also import other style files */
+html {
+  background-image: linear-gradient(to right, $fee-background-light, $fee-background-dark);
+  height: 100%;
+}
+
 body {
-    background-color: #fefefe;
     // background-image: url(./assets/silver_wallpaper.jpg);
     // background-size: cover;
     margin: 0 0 0 0;
@@ -8,5 +13,49 @@ body {
 
     p {
         margin: 0 0 0 0;
+    }
+
+    .leaf {
+        color: white;
+        background-color:#7e7e7e;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.33s;
+
+        p {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .description {
+            font-size: 0.75rem;
+        }
+    }
+
+    .leaf:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+    .skill-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+
+      app-skill-card {
+        width: auto;
+      }
     }
 }

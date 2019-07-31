@@ -1,0 +1,12 @@
+.topic-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.subtopics {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+}

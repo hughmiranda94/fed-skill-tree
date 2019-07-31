@@ -1,0 +1,129 @@
+Tree:[
+   {
+      "id":"1",
+      "name":"FED",
+      "technologies":[
+         {
+            "id":"1",
+            "parent":"",
+            "name":"ES6",
+            "description":"Quiz",
+            "evaluationType":"Quiz",
+            "topics":[
+               {
+                  "id":"1",
+                  "name":"Variables",
+                  "parent":"",
+                  "description":"",
+                  "References":[
+                     {
+                        "name":"var, let & const",
+                        "class":"Article",
+                        "description":"",
+                        "url":""
+                        "subscriptionNeeded":"true"
+                     },
+                     {
+                        "name":"Pluralsight Training: JS Variables",
+                        "class":"Training",
+                        "description":"",
+                        "url":""
+                        "subscriptionNeeded":"false"
+                     }
+                  ]
+               },
+               {
+                  "id":"2",
+                  "name":"Arrow functions",
+                  "parent":"",
+                  "References":[
+                     {
+                        "name":"JavaScript: Arrow Functions for Beginners",
+                        "class":"Article",
+                        "description":"",
+                        "url":"",
+                        "subscriptionNeeded":"false"
+                     }
+                  ]
+               },
+               {
+                  "id":"3",
+                  "name":"Destructuring",
+                  "parent":"",
+                  "References":[
+                     {
+                        "name":"Destructuring and parameter handling in ECMAScript 6",
+                        "class":"Article",
+                        "description":"",
+                        "url":"",
+                        "subscriptionNeeded":"false"
+                     }
+                  ]
+               },
+               {
+                  "id":"4",
+                  "name":"Array Matching",
+                  "parent":"3",
+                  "References":[
+                     {
+                        "name":"Array intersection, difference and union in ES6",
+                        "class":"Article",
+                        "description":"",
+                        "url":"",
+                        "subscriptionNeeded":"false"
+                     }
+                  ]
+               },
+               {
+                  "id":"5",
+                  "name":"Object Matching",
+                  "parent":"3",
+                  "References":[]
+               },
+               {
+                  "id":"6",
+                  "name":"Parameter Context Matching",
+                  "parent":"3",
+                  "References":[]
+               }
+            ]
+         }
+      ]
+   }
+]
+
+Users:[
+   {
+      "EID":"jose.a.parga.cruz",
+      "name":"Jose Angel Parga Cruz",
+      "tree":[
+         {
+            "technologyId":"1",
+            "proficiencyLevel":"0",
+            "lastUpdate":""
+         }
+      ]
+   }
+]
+
+db.technologies.update({name:'ES6'},{name:'ES6',description:'ECMA Script 6',evaluationType:'quiz',topics:[{name:'Variables',description:'...',references:[name:'variables',class:'article',description:'...',url:'www.google.com',subscriptionNeeded:false]}]})
+
+db.technologies.update({name:'ES6'},
+{
+    name:'ES6',
+    description:'ECMA Script 6',
+    evaluationType:'quiz',
+    topics:[
+        {
+            name:'Variables',
+            description:'...',
+            references:[
+                name:'var, let & const',
+                class:'article',
+                description:'...',
+                url:'www.google.com',
+                subscriptionNeeded:false
+                ]
+        }
+    ]
+})

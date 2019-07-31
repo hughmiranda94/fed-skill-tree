@@ -1,0 +1,9 @@
+<div class="landing-page">
+  <app-header [headerInfo]="headerInfo"></app-header>
+  <section class="skill-cards">
+    <app-skill-card *ngFor="let tech of technologies" [skillCardInfo]=tech (click)="onSelectTechnology(tech.id)" [selectedCard]="selectedTechnology === tech"></app-skill-card>
+  </section>
+  <section class="technology-info">
+    <app-technology-content [selectedTechnology] = "selectedTechnology"></app-technology-content>
+  </section>
+</div>

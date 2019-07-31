@@ -15,6 +15,7 @@ export class TreeComponent implements OnInit {
 
   ngOnInit() {
     this.data = this.skills.getSkills();
+    console.log(this.data);
   }
 
   onEmission(e){

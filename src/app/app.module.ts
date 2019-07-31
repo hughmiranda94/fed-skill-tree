@@ -5,26 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TreeComponent } from './dashboard/tree/tree.component';
-import { BranchComponent } from './dashboard/tree/branch/branch.component';
-import { LeafComponent } from './dashboard/tree/branch/leaf/leaf.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { SeparatorComponent } from './dashboard/tree/branch/separator/separator.component';
+import { TechnologyBranchComponent } from './dashboard/tree/technology-branch/technology-branch.component';
+import { TopicBranchComponent } from './dashboard/tree/technology-branch/topic-branch/topic-branch.component';
 import { DetailsComponent } from './dashboard/details/details.component';
-import { LeafDetailComponent } from './leaf-detail/leaf-detail.component';
-import { ProficiencyLevelComponent } from './leaf-detail/proficiency-level/proficiency-level.component';
+import { SubtopicBranchComponent } from './dashboard/tree/technology-branch/topic-branch/subtopic-branch/subtopic-branch.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SkillCardComponent } from './common-components/skill-card/skill-card.component';
+import { TechnologyContentComponent } from './landing-page/technology-content/technology-content.component';
+import { HeaderComponent } from './common-components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    TreeComponent,
-    BranchComponent,
-    LeafComponent,
-    NavBarComponent,
-    SeparatorComponent,
     DetailsComponent,
-    LeafDetailComponent,
-    ProficiencyLevelComponent
+    TreeComponent,
+    NavBarComponent,
+    TechnologyBranchComponent,
+    TopicBranchComponent,
+    SubtopicBranchComponent,
+    LandingPageComponent,
+    SkillCardComponent,
+    TechnologyContentComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

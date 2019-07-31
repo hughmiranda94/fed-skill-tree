@@ -3,23 +3,29 @@
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  // margin: 20px;
 }
 
 p {
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 600;
   color: #5db6f1;
-  margin: 10px;
+  margin: 25px;
 }
 .profile-picture-container {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
+  transition: all 0.33s;
   
   img {
     width: 100%;
     min-height: 100%;
   }
+}
+
+.profile-picture-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

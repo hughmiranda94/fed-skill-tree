@@ -1,0 +1,12 @@
+<div class="topic-container">
+    <!-- <div class="leaf"> -->
+    <div class="leaf" [ngStyle]="{'background-color':getLeafColor(), 'width':getSize(), 'height':getSize()}">
+        <p class="title">
+          {{topicBranch.name}}
+        </p>
+      </div>  
+</div>
+
+<div class="subtopics">
+  <app-subtopic-branch *ngFor="let subTopicBranch of subTopics" [subTopicBranch] = subTopicBranch></app-subtopic-branch>
+</div>

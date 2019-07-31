@@ -1,0 +1,13 @@
+<div class="skill-card" [ngClass]="{'selected': selectedCard}">
+  <div class="skill-card-icon-container">
+    <img src="{{skillCardInfo.icon}}" class="skill-card-icon">
+  </div>
+  <div class="skill-card-info">
+      <p class="skill-card-name">
+          {{skillCardInfo.name}}
+        </p>
+        <p class="skill-card-score">
+          85/100
+        </p>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+@import "../../styles/constants";
+
+.skill-card {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: $fee-dark;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.25s;
+
+  .skill-card-icon-container {
+    background-image: linear-gradient(214deg, $fee-cyan-light, $fee-cyan-dark);
+    width: 20%;
+  }
+
+  .skill-card-info {
+    color: $fee-bluesky;
+    padding: 0.5rem 1rem;
+    .skill-card-name {
+      font-size: 1.5rem;
+    }
+    .skill-card-score {
+      color: $fee-white;
+      font-size: 3rem;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-0.25rem);
+  }
+}
+
+.selected {
+  box-shadow: 0 0 1rem rgba($fee-white, 0.25);
+}
