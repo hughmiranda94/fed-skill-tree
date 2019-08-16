@@ -8,7 +8,7 @@ import { SkillsDataService } from 'src/app/skills-data.service';
 })
 export class TechnologyContentComponent implements OnInit {
 
-  topics;
+  childs;
 
   @Input() selectedTechnology;
 
@@ -16,15 +16,15 @@ export class TechnologyContentComponent implements OnInit {
 
   ngOnInit() {
     console.log('change');
-    this.topics = this.getTopics();
+    this.childs = this.getChildsTechnologies();
   }
 
   onSelectTechnology(id) {
     console.log(id);
   }
 
-  getTopics() {
-    return this.skillsData.getTopics(this.selectedTechnology.id);
+  getChildsTechnologies() {
+    return this.selectedTechnology?this.skillsData.getChildsTechnologies(this.selectedTechnology.id):{};
   }
 
 }

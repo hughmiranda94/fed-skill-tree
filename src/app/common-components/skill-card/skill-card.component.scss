@@ -7,6 +7,7 @@
   border-radius: 5px;
   overflow: hidden;
   transition: all 0.25s;
+  margin: 10px 0;
 
   .skill-card-icon-container {
     background-image: linear-gradient(214deg, $fee-cyan-light, $fee-cyan-dark);
@@ -30,7 +31,11 @@
     transform: translateY(-0.25rem);
   }
 }
-
+.technology-childs{
+  .skill-card {
+    margin: 5px 0;
+  }
+}
 .selected {
   box-shadow: 0 0 1rem rgba($fee-white, 0.25);
 }

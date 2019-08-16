@@ -1,9 +1,25 @@
 <div class="landing-page">
   <app-header [headerInfo]="headerInfo"></app-header>
-  <section class="skill-cards">
-    <app-skill-card *ngFor="let tech of technologies" [skillCardInfo]=tech (click)="onSelectTechnology(tech.id)" [selectedCard]="selectedTechnology === tech"></app-skill-card>
-  </section>
-  <section class="technology-info">
-    <app-technology-content [selectedTechnology] = "selectedTechnology"></app-technology-content>
-  </section>
+  <div class="content" [class.show-selected-tech]="selectedTechnology">
+    <section class="app-body">
+      <div class="skill-cards">
+        <app-skill-card *ngFor="let tech of skillsData.getTechnologies()" [skillCardInfo]=tech
+          (click)="onSelectTechnology(tech)" [selectedCard]="selectedTechnology === tech"></app-skill-card>
+      </div>
+    </section>
+    <section class="details" *ngIf="selectedTechnology">
+      <div class="general">
+        <h2 class="technology-name">
+          {{selectedTechnology.name}}
+        </h2>
+        <p class="technology-description">
+          {{selectedTechnology.description}}
+        </p>
+        <button class="technology-learn-more"  (click)="openDialog()">Learn More</button>
+      </div>
+      <div class="technology-childs">
+        <app-technology-content [selectedTechnology]="selectedTechnology"></app-technology-content>
+      </div>
+    </section>
+  </div>
 </div>

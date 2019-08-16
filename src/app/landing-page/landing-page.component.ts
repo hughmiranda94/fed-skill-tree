@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SkillCardService } from '../skill-card.service';
 import { SkillsDataService } from '../skills-data.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { SkillContentDialogComponent } from '../common-components/skill-content-dialog/skill-content-dialog.component'
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -9,24 +10,35 @@ import { SkillsDataService } from '../skills-data.service';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(private skillsData: SkillsDataService) { }
+  constructor(
+    private skillsData: SkillsDataService,
+    public dialog: MatDialog
+    ) { }
 
   technologies;
   selectedTechnology;
 
   headerInfo = {
-    pageTitle : 'Frontend Road Map',
-    username : 'José Ángel Parga Cruz',
+    pageTitle: 'Frontend Road Map',
+    username: 'José Ángel Parga Cruz',
     searchInput: true
   };
 
   ngOnInit() {
-    this.technologies= this.skillsData.getTechnologies();
-    this.selectedTechnology = this.skillsData.getTechnologyById('01');
+    this.technologies = this.skillsData.getTechnologies();
+    // this.selectedTechnology = this.skillsData.getTechnologyById('01');
   }
 
-  onSelectTechnology(id) {
-    this.selectedTechnology = this.skillsData.getTechnologyById(id);
+  onSelectTechnology(technology) {
+    this.selectedTechnology = technology ? this.skillsData.getTechnologyById(technology.id) : {};
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(SkillContentDialogComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

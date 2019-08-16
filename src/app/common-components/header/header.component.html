@@ -10,5 +10,5 @@
         </p>
       </div>
   </div>
-  <input type="search" placeholder="Search" *ngIf="headerInfo.searchInput">
+  <input type="search" placeholder="Search" *ngIf="headerInfo.searchInput" (change)='handleSearch($event)'>
 </header>

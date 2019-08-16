@@ -3,3 +3,59 @@
 .landing-page {
   padding: 4rem 9rem;
 }
+
+.technology-name {
+  color: $fee-white;
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.technology-description {
+  color: $fee-white;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.technology-learn-more {
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #00ACB8;
+  color: #D7E6E6;
+  font-weight: bold;
+}
+
+.content {
+  display: flex;
+  .app-body {
+    width: 100%;
+    float: left;
+    transition: width .8s;
+  }
+
+  .details {
+    width: 25%;
+    padding: 0 1%;
+    opacity: 0;
+    transition: all 1.5s;
+    .general {
+      margin-bottom: 10px;
+    }
+  }
+
+  &.show-selected-tech {
+    .app-body {
+      width: 75%;
+    }
+    .details {
+      opacity: 1;
+    }
+  }
+  [ng-reflect-selected-card="true"] {
+      grid-area: 1;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      padding: 0 20%;
+  }
+}
