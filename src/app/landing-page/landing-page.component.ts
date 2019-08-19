@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SkillCardService } from '../skill-card.service';
 import { SkillsDataService } from '../skills-data.service';
-import { MatDialog } from '@angular/material/dialog';
 import { SkillContentDialogComponent } from '../common-components/skill-content-dialog/skill-content-dialog.component'
 @Component({
   selector: 'app-landing-page',
@@ -11,8 +10,7 @@ import { SkillContentDialogComponent } from '../common-components/skill-content-
 export class LandingPageComponent implements OnInit {
 
   constructor(
-    private skillsData: SkillsDataService,
-    public dialog: MatDialog
+    private skillsData: SkillsDataService
     ) { }
 
   technologies;
@@ -34,11 +32,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(SkillContentDialogComponent)
+    // const dialogRef = this.dialog.open(SkillContentDialogComponent)
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 
 }

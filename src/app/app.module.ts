@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,7 +41,6 @@ import { SkillContentDialogComponent } from './common-components/skill-content-d
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatDialogModule,
     BrowserAnimationsModule
   ],
   providers: [],
