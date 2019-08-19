@@ -17,20 +17,20 @@ header {
       margin: 0rem 1rem;
 
       h1 {
-        color: $fee-white;
+        color: $fee-main-font;
         font-size: 3rem;
         margin: 0 0 1rem 0;
       }
 
       p {
-        color: $fee-bluesky;
+        color: $fee-second-font;
         font-size: 1.5rem;
       }
     }
 
     .blub {
       border-radius: 50%;
-      background-image: radial-gradient($fee-cyan-light, $fee-cyan);
+      background-image: radial-gradient($fee-accent-light, $fee-cyan);
       width: 3rem;
       height: 3rem;
       display: inline-block;
@@ -41,17 +41,17 @@ header {
 
   input {
     background-color: transparent;
-    color: $fee-white;
+    color: $fee-main-font;
     width: 20rem;
     height: 2rem;
     margin-top: 0.5rem;
     border-radius: 3px;
-    border: 1px solid $fee-gray-border;
+    border: 1px solid $fee-border;
     padding: 0 1rem;
     transition: all 0.25s;
 
     &::placeholder {
-      color:$fee-white;
+      color:$fee-main-font;
     }
 
     &:focus {

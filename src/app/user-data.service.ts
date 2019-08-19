@@ -7,12 +7,13 @@ export class UserDataService {
 
   user = {
     name: 'Hugo Miranda',
+    isAdmin: true,
     picture:'',
     skills:{
       'B01-L01': 2,
       'B01-L02': 1,
       'B02-L01': 3,
-      'B02-L02': 3, 
+      'B02-L02': 3,
     }
   }
 

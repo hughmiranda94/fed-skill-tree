@@ -1,4 +1,7 @@
 <div class="landing-page">
+  <div class="menu-container">
+    <button class="menu-icon" (click)="toggleMenu()">MENU</button>
+  </div>
   <app-header [headerInfo]="headerInfo"></app-header>
   <section class="skill-cards">
     <app-skill-card *ngFor="let tech of technologies" [skillCardInfo]=tech (click)="onSelectTechnology(tech.id)" [selectedCard]="selectedTechnology === tech"></app-skill-card>

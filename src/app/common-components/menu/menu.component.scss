@@ -1,0 +1,29 @@
+@import "../../styles/constants";
+
+.menu {
+  z-index: 1;
+  background-color: $fee-background-light;
+  color: $fee-main-font;
+  transition: all 0.2s;
+  position: fixed;
+  left: 75vw;
+  width: 25vw;
+  height: 100vh;
+
+  button {
+    margin: 10px;
+    border: none;
+    background: none;
+    color: $fee-accent;
+    font-size: 1.25rem;
+    font-weight: 700;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.hidden {
+  transform: translateX(100%);
+}

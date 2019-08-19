@@ -14,6 +14,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SkillCardComponent } from './common-components/skill-card/skill-card.component';
 import { TechnologyContentComponent } from './landing-page/technology-content/technology-content.component';
 import { HeaderComponent } from './common-components/header/header.component';
+import { MenuComponent } from './common-components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HeaderComponent } from './common-components/header/header.component';
     LandingPageComponent,
     SkillCardComponent,
     TechnologyContentComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

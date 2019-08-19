@@ -1,10 +1,24 @@
-$fee-white: #FFFFFF;
-$fee-bluesky: #D7E6E6;
-$fee-cyan-light: #00ACB8;
+// COLORS
 $fee-cyan: #00A9B9;
+$fee-cyan-light: #00ACB8;
 $fee-cyan-dark: #344B4F;
 $fee-gray: #344B4F;
 $fee-dark: #303030;
-$fee-background-light: #2B2B2B;
-$fee-background-dark: #1D1F21;
+$fee-white: #FFFFFF;
+$fee-bluesky: #D7E6E6;
 $fee-gray-border: #707070;
+$fee-night-light: #2B2B2B;
+$fee-night-dark: #1D1F21;
+$fee-day-light: #FFFFFF;
+$fee-day-dark: #E6E6E6;
+
+
+// APP
+$fee-main-font: $fee-white;
+$fee-second-font: $fee-bluesky;
+$fee-accent: $fee-cyan;
+$fee-accent-light: $fee-cyan-light;
+$fee-accent-dark: $fee-cyan-dark;
+$fee-background-light: $fee-night-light;
+$fee-background-dark: $fee-night-dark;
+$fee-border: $fee-gray-border;
