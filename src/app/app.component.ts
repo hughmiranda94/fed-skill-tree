@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './settings.service';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fed-skill-tree';
+
+  public isNightMode$: Observable<boolean>;
+
+  constructor(private settingsService: SettingsService) {
+    this.isNightMode$ = this.settingsService.isNightMode();
+  }
+
 }

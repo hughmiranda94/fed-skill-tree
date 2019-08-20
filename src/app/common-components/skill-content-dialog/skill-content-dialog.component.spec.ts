@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopicBranchComponent } from './topic-branch.component';
+import { SkillContentDialogComponent } from './skill-content-dialog.component';
 
-describe('TopicBranchComponent', () => {
-  let component: TopicBranchComponent;
-  let fixture: ComponentFixture<TopicBranchComponent>;
+describe('SkillContentDialogComponent', () => {
+  let component: SkillContentDialogComponent;
+  let fixture: ComponentFixture<SkillContentDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopicBranchComponent ]
+      declarations: [ SkillContentDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopicBranchComponent);
+    fixture = TestBed.createComponent(SkillContentDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,4 @@
-<div class="skill-card" [ngClass]="{'selected': selectedCard}">
+<div class="skill-card" [ngClass]="{'selected': selectedCard, 'night-mode': (isNightMode$ | async)}">
   <div class="skill-card-icon-container">
     <img src="{{skillCardInfo.icon}}" class="skill-card-icon">
   </div>

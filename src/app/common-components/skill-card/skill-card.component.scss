@@ -3,25 +3,55 @@
 .skill-card {
   display: flex;
   flex-flow: row wrap;
-  background-color: $fee-dark;
+  background-color: $fee-card-bg;
   border-radius: 5px;
   overflow: hidden;
   transition: all 0.25s;
+  margin: 10px 0;
+  // height: 100px;
 
   .skill-card-icon-container {
-    background-image: linear-gradient(214deg, $fee-accent-light, $fee-accent-dark);
+    background-image: linear-gradient(214deg, $fee-acc-light, $fee-acc-dark);
     width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+
+    img {
+      width: 100%;
+    }
   }
 
   .skill-card-info {
     color: $fee-second-font;
     padding: 0.5rem 1rem;
     .skill-card-name {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
     .skill-card-score {
       color: $fee-main-font;
-      font-size: 3rem;
+      font-size: 2.5rem;
+    }
+  }
+
+  .technology-childs{
+    .skill-card {
+      margin: 5px 0;
+    }
+  }
+
+  &.selected {
+    box-shadow: 0 0 1rem rgba($fee-shadow, 0.25);
+    height: 150px;
+    .skill-card-info {
+      padding: 0.5rem 1rem;
+      .skill-card-name {
+        font-size: 2rem;
+      }
+      .skill-card-score {
+        font-size: 4rem;
+      }
     }
   }
 
@@ -29,8 +59,17 @@
     cursor: pointer;
     transform: translateY(-0.25rem);
   }
-}
 
-.selected {
-  box-shadow: 0 0 1rem rgba($fee-white, 0.25);
+  &.night-mode {
+  background-color: $fee-card-bg-night;
+    .skill-card-info {
+      color: $fee-second-font-night;
+      .skill-card-score {
+        color: $fee-main-font-night;
+      }
+    }
+    &.selected {
+      box-shadow: 0 0 1rem rgba($fee-shadow-night, 0.25);
+    }
+  }
 }

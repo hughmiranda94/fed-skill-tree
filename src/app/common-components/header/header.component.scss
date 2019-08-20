@@ -19,7 +19,7 @@ header {
       h1 {
         color: $fee-main-font;
         font-size: 3rem;
-        margin: 0 0 1rem 0;
+        margin: 0 0 0.25rem 0;
       }
 
       p {
@@ -30,7 +30,7 @@ header {
 
     .blub {
       border-radius: 50%;
-      background-image: radial-gradient($fee-accent-light, $fee-cyan);
+      background-image: radial-gradient($fee-acc-light, $fee-cyan);
       width: 3rem;
       height: 3rem;
       display: inline-block;
@@ -55,8 +55,37 @@ header {
     }
 
     &:focus {
-      box-shadow: 0 0 1rem rgba($fee-white, 0.25);
+      box-shadow: 0 0 1rem rgba($fee-shadow, 0.25);
       outline: none;
+    }
+  }
+
+
+  &.night-mode {
+
+  .header-title {
+    .titles {
+      h1 {
+        color: $fee-main-font-night;
+      }
+
+      p {
+        color: $fee-second-font-night;
+      }
+    }
+  }
+
+
+    input {
+      color: $fee-main-font-night;
+
+      &::placeholder {
+        color:$fee-main-font-night;
+      }
+
+      &:focus {
+        box-shadow: 0 0 1rem rgba($fee-shadow-night, 0.25);
+      }
     }
   }
 }

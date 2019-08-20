@@ -1,6 +1,4 @@
-<!-- <app-nav-bar></app-nav-bar> -->
-<!-- <app-dashboard></app-dashboard> -->
-<div class="main-container">
+<div class="main-container" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <app-menu></app-menu>
   <router-outlet></router-outlet>
 </div>
