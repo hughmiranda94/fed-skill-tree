@@ -1,0 +1,72 @@
+@import "../../styles/constants";
+
+.menu {
+  .menu-icon {
+    width: 2.5rem;
+    margin: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.hide {
+      float: right;
+    }
+  }
+
+  .hamburger-container {
+    position: fixed;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    left: 99vw;
+    width: 1vw;
+  }
+
+  .menu-content {
+    z-index: 1;
+    // background-image: linear-gradient(30deg, $fee-menu-bg, $fee-menu-bg - 50);
+    background-color: $fee-menu-bg;
+    color: $fee-main-font;
+    transition: all 0.25s;
+    position: fixed;
+    left: 75vw;
+    width: 25vw;
+    height: 100vh;
+
+    ul {
+      padding: 1rem 2rem;
+    }
+
+    li {
+      cursor: pointer;
+      list-style-type: none;
+      margin: 1.5rem 0;
+      transition: all 0.25s;
+
+      &:focus {
+        outline: none;
+      }
+
+      &.active {
+        font-weight: 700;
+      }
+    }
+
+    &.hidden {
+      transform: translateX(100%);
+    }
+  }
+
+  &.night-mode {
+    .menu-content {
+      // background-image: linear-gradient(30deg,$fee-menu-bg-night, $fee-menu-bg-night + 30);
+      background-color: $fee-menu-bg-night;
+      color: $fee-main-font-night;
+    }
+  }
+}
+
+
+

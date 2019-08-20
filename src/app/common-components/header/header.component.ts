@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SkillsDataService } from '../../skills-data.service';
+import { Observable } from 'rxjs';
+import { SettingsService } from 'src/app/settings.service';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +11,14 @@ import { SkillsDataService } from '../../skills-data.service';
 export class HeaderComponent implements OnInit {
 
   @Input() headerInfo;
+  public isNightMode$: Observable<boolean>;
 
-  constructor(private skills : SkillsDataService) { }
+  constructor(private skills : SkillsDataService, private settingsService: SettingsService) {
+    this.isNightMode$ = this.settingsService.isNightMode();
+   }
 
   handleSearch(element) {
-    this.skills.search(element.target.value)
+    this.skills.search(element.target.value);
   }
 
   ngOnInit() {

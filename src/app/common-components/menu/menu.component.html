@@ -1,0 +1,21 @@
+<div class="menu" [ngClass]="{'night-mode': (isNightMode$ | async)}">
+    <div class="hamburger-container">
+        <img *ngIf="!(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__hamburger_menu_black.png" class="menu-icon" (click)="toggleMenu()">
+        <img *ngIf="(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__hamburger_menu_white.png" class="menu-icon" (click)="toggleMenu()">
+    </div>
+    <div class="menu-content" [ngClass]="{'hidden': menuHidden}">
+        <img *ngIf="!(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__forwards_arrow_black.png" class="menu-icon hide" (click)="toggleMenu()">
+        <img *ngIf="(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__forwards_arrow_white.png" class="menu-icon hide" (click)="toggleMenu()">
+      <ul>
+        <li [routerLink]="['/home']" routerLinkActive="active">Home</li>
+        <li [routerLink]="['/tree']" routerLinkActive="active">Tree</li>
+        <li routerLinkActive="active">Settings</li>
+        <li (click)="toggleNightMode()">
+            <span>Night Mode:
+              <span *ngIf="!(isNightMode$ | async)">Off</span>
+              <span *ngIf="(isNightMode$ | async)">On</span>
+            </span>
+          </li>
+      </ul>
+    </div>
+</div>

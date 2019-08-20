@@ -1,11 +1,16 @@
-<div class="landing-page">
+<div class="landing-page" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <app-header [headerInfo]="headerInfo"></app-header>
   <div class="content" [class.show-selected-tech]="selectedTechnology">
     <section class="app-body">
       <div class="skill-cards">
         <app-skill-card *ngFor="let tech of skillsData.getTechnologies()" [skillCardInfo]=tech
-          (click)="onSelectTechnology(tech)" [selectedCard]="selectedTechnology === tech"></app-skill-card>
+        (click)="onSelectTechnology(tech)" [selectedCard]="selectedTechnology === tech"></app-skill-card>
       </div>
+      <div class="no-results" *ngIf="skillsData.getTechnologies().length === 0">
+          <img *ngIf="!(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__security_black.png" class="no-results-img">
+          <img *ngIf="(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__security_white.png" class="no-results-img">
+          <p>No results found</p>
+        </div>
     </section>
     <section class="details" *ngIf="selectedTechnology">
       <div class="general">

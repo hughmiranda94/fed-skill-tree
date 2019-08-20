@@ -1,7 +1,10 @@
 $bottom-margin: 50px;
 $line-width: 2px;
 $line-color: #D7E6E6;
-$bg-color: #1e1f21;
+// $bg-color: #c5cddb;
+// $bg-color-night: #1e1f21;
+
+@import "../styles/constants";
 
 html {
 
@@ -25,19 +28,19 @@ hr {
   margin: 50px 0;
   border: none;
   height: 1px;
-  background-color: $bg-color - 30;
+  background-color: $fee-card-bg - 30;
 }
 
 body {
-  background: $bg-color;
+  background: $fee-card-bg;
   font-family: 'Poppins', sans-serif;
 }
 
 p,
 a {
   margin: 0;
-  background-color: #303030;
-  color: #D7E6E6;
+  background-color: $fee-card-bg;
+  color: rgb(65, 66, 66);
   padding: 30px;
   border-radius: 7px;
   min-width: 70px;
@@ -149,6 +152,24 @@ a {
         bottom: -$bottom-margin / 2;
         transform: translateY(100%);
       }
+    }
+
+  }
+
+  &.night-mode {
+    hr {
+      background-color: $fee-card-bg-night - 30;
+    }
+
+    body {
+      background: $fee-card-bg-night;
+    }
+
+    p,
+    a {
+      margin: 0;
+      background-color: $fee-card-bg-night;
+      color: $fee-main-font-night;
     }
 
   }

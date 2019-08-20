@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SkillCardService } from './skill-card.service';
+import { SettingsService } from './settings.service';
 
-describe('SkillCardService', () => {
+describe('SettingsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SkillCardService = TestBed.get(SkillCardService);
+    const service: SettingsService = TestBed.get(SettingsService);
     expect(service).toBeTruthy();
   });
 });

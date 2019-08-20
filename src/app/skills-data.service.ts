@@ -15,25 +15,25 @@ export class SkillsDataService {
       {
         id: '01',
         name: 'HTML',
-        icon: '#',
+        icon: 'assets/html.svg',
         description: this.randomDescription
       },
       {
         id: '02',
         name: 'CSS',
-        icon: '#',
+        icon: 'assets/css.svg',
         description: this.randomDescription
       },
       {
         id: '03',
         name: 'JavaScript',
-        icon: '#',
+        icon: 'assets/javascript.svg',
         description: this.randomDescription
       },
       {
         id: '04',
         name: 'FED Core',
-        icon: '#',
+        icon: 'assets/code.svg',
         description: this.randomDescription
       },
 

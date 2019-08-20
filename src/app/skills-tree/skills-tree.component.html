@@ -1,4 +1,4 @@
-<div class="landing-page tree">
+<div class="landing-page tree" [ngClass]="{'night-mode': (isNightMode$ | async)}">
 
   <app-header [headerInfo]="headerInfo"></app-header>
   <section>

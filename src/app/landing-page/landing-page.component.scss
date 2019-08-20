@@ -2,60 +2,104 @@
 
 .landing-page {
   padding: 4rem 9rem;
-}
 
-.technology-name {
-  color: $fee-white;
-  font-size: 2rem;
-  margin-top: 0;
-}
 
-.technology-description {
-  color: $fee-white;
-  font-size: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-}
+  .technology-name {
+    color: $fee-main-font;
+    font-size: 2rem;
+    margin-top: 0;
+  }
 
-.technology-learn-more {
-  padding: 10px;
-  border: 0;
-  border-radius: 10px;
-  background-color: #00ACB8;
-  color: #D7E6E6;
-  font-weight: bold;
-}
+  .technology-description {
+    color: $fee-main-font;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+  }
 
-.content {
-  display: flex;
-  .app-body {
+  .technology-learn-more {
     width: 100%;
-    float: left;
-    transition: width .8s;
-  }
+    margin-bottom: 2rem;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #00ACB8;
+    color: #D7E6E6;
+    font-weight: bold;
+    transition: all 0.25s;
+    font-size: 0.75rem;
 
-  .details {
-    width: 25%;
-    padding: 0 1%;
-    opacity: 0;
-    transition: all 1.5s;
-    .general {
-      margin-bottom: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 
-  &.show-selected-tech {
+  .content {
+    display: flex;
     .app-body {
-      width: 75%;
+      width: 100%;
+      float: left;
+      transition: width 0.25s;
     }
+
     .details {
-      opacity: 1;
+      width: 25%;
+      padding-left: 2rem;
+      opacity: 0;
+      transition: all 2.5s;
+      .general {
+        margin-bottom: 10px;
+      }
+    }
+
+    &.show-selected-tech {
+      .app-body {
+        width: 75%;
+      }
+      .details {
+        opacity: 1;
+      }
+    }
+    [ng-reflect-selected-card="true"] {
+        grid-area: 1;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        padding: 0 20%;
     }
   }
-  [ng-reflect-selected-card="true"] {
-      grid-area: 1;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      padding: 0 20%;
+
+  .no-results {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    color: $fee-main-font;
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    .no-results-img {
+      width: 15vw;
+    }
+  }
+
+  &.night-mode {
+    .technology-name {
+      color: $fee-main-font-night;
+    }
+    .technology-description {
+      color: $fee-main-font-night;
+    }
+
+    .no-results {
+      color: $fee-main-font-night;
+    }
   }
 }

@@ -1,4 +1,4 @@
-<header>
+<header [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <div class="header-title">
       <span class="blub"></span>
       <div class="titles">
@@ -10,5 +10,5 @@
         </p>
       </div>
   </div>
-  <input type="search" placeholder="Search" *ngIf="headerInfo.searchInput" (change)='handleSearch($event)'>
+  <input type="search" placeholder="Search" *ngIf="headerInfo.searchInput" (keyup)='handleSearch($event)'>
 </header>

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillCardService } from '../skill-card.service';
 import { SkillsDataService } from '../skills-data.service';
 import { SkillContentDialogComponent } from '../common-components/skill-content-dialog/skill-content-dialog.component'
+import { UserDataService } from '../user-data.service';
+import { SettingsService } from '../settings.service';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -9,26 +12,43 @@ import { SkillContentDialogComponent } from '../common-components/skill-content-
 })
 export class LandingPageComponent implements OnInit {
 
+  public isNightMode$: Observable<boolean>;
+
   constructor(
-    private skillsData: SkillsDataService
-    ) { }
+    public skillsData: SkillsDataService,
+    private userData: UserDataService,
+    private settingsService: SettingsService
+    ) {
+      this.isNightMode$ = this.settingsService.isNightMode();
+    }
 
   technologies;
   selectedTechnology;
 
   headerInfo = {
-    pageTitle: 'Frontend Road Map',
-    username: 'José Ángel Parga Cruz',
+    pageTitle : 'Frontend Road Map',
+    username : 'José Ángel Parga Cruz',
+    isAdmin: false,
     searchInput: true
   };
 
   ngOnInit() {
     this.technologies = this.skillsData.getTechnologies();
-    // this.selectedTechnology = this.skillsData.getTechnologyById('01');
+    this.headerInfo.username = this.userData.getUserData().name;
+    this.headerInfo.isAdmin = this.userData.getUserData().isAdmin;
   }
 
   onSelectTechnology(technology) {
-    this.selectedTechnology = technology ? this.skillsData.getTechnologyById(technology.id) : {};
+    console.log(technology);
+    if (!this.selectedTechnology || technology.id !== this.selectedTechnology.id) {
+      this.selectedTechnology = technology ? this.skillsData.getTechnologyById(technology.id) : {};
+      this.technologies = this.skillsData.getTechnologies();
+      this.selectedTechnology = this.skillsData.getTechnologyById(technology.id);
+
+    } else {
+      this.selectedTechnology = undefined;
+    }
+
   }
 
   openDialog() {
@@ -38,5 +58,4 @@ export class LandingPageComponent implements OnInit {
     //   console.log(`Dialog result: ${result}`);
     // });
   }
-
 }
