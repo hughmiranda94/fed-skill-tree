@@ -1,3 +1,9 @@
+<dropdown-select 
+    [changeText] = false
+    [type]="'navbar'" 
+    [classDrop] ="'dashboard'"
+    [list] = "sections"></dropdown-select>
+
 <div class="main-container" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <app-menu></app-menu>
   <router-outlet></router-outlet>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SettingsService } from './settings.service';
 import { Subject, Observable } from 'rxjs';
+import { HelperService } from './services/helper.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,31 @@ export class AppComponent {
 
   public isNightMode$: Observable<boolean>;
 
-  constructor(private settingsService: SettingsService) {
+  constructor(private settingsService: SettingsService, private helper: HelperService) {
     this.isNightMode$ = this.settingsService.isNightMode();
   }
+  
+  ngOnInit() {
+    this.sections  = this.helper.dropdownObjectToArray(this.sections, 'link', 'url')
+  }
+
+  sections = [
+    {
+      link: 'Home',
+      url: '/'
+    },
+    {
+      link: 'Technologies',
+      url: '../admin/technologies/table'
+    },
+    {
+      link: 'Topics',
+      url: '../admin/topics/table'
+    },
+    {
+      link: 'References',
+      url: '../admin/references/table'
+    }
+  ]
 
 }
