@@ -3,11 +3,11 @@ import { Reference, Technology, Topic, TypeData } from '../admin/structurs';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { ReferenceService } from '../reference.service';
+import { ReferenceService } from '../admin/services/reference.service';
 import { ReferencesDataService } from '../services/references-data.service';
-import { TechnologyService } from '../technology.service';
+import { TechnologyService } from '../admin/services/technology.service';
 import { TechnologiesDataService } from '../services/technologies-data.service';
-import { TopicService } from '../topic.service';
+import { TopicService } from '../admin/services/topic.service';
 import { TopicsDataService } from '../services/topics-data.service';
 import { AdminService } from '../admin/admin.service';
 
