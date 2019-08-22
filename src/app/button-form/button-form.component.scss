@@ -1,0 +1,24 @@
+.btn-form {
+    border: none;
+    height: 40px;
+    width: 180px;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+.primary {
+    background-color: #dcdddd;
+    
+    &:hover {
+        background-color: darken($color: #dcdddd, $amount: 10%)
+    }
+}
+
+
+.secondary {
+    background-color: #8e9191;
+    
+    &:hover {
+        background-color: darken($color: #8e9191, $amount: 10%)
+    }
+}
