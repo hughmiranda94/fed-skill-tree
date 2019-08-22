@@ -16,6 +16,7 @@ import { MenuComponent } from './common-components/menu/menu.component';
 import { DropdownSelectComponent } from './dropdown-select/dropdown-select.component';
 import { TagsComponent } from './tags/tags.component';
 import { InputTextComponent } from './input-text/input-text.component';
+import { ButtonLinkComponent } from './button-link/button-link.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { InputTextComponent } from './input-text/input-text.component';
     MenuComponent,
     DropdownSelectComponent,
     TagsComponent,
-    InputTextComponent
+    InputTextComponent,
+    ButtonLinkComponent
   ],
   entryComponents:[SkillContentDialogComponent],
   imports: [
