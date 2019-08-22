@@ -18,6 +18,7 @@ import { TagsComponent } from './tags/tags.component';
 import { InputTextComponent } from './input-text/input-text.component';
 import { ButtonLinkComponent } from './button-link/button-link.component';
 import { ButtonFormComponent } from './button-form/button-form.component';
+import { AdminComponent } from './admin/admin.component';
 import { AdminTableComponent } from './admin/admin-table/admin-table.component';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { AdminTableComponent } from './admin/admin-table/admin-table.component';
     InputTextComponent,
     ButtonLinkComponent,
     ButtonFormComponent,
+    AdminComponent,
     AdminTableComponent
   ],
   entryComponents:[SkillContentDialogComponent],
