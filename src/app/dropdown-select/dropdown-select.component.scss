@@ -1,0 +1,143 @@
+.dropdown-dashboard {
+    right: 70px;
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: flex-end;
+    width: max-content;
+    margin-top: 40px;
+    position: absolute;
+}
+
+.drop-list{
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.navbar {
+    .drop-list{
+        padding-right: 60px;
+        margin-top: 90px;
+    }
+    .drop-item {
+        padding: 0
+    }
+}
+
+.form{
+    .drop-btn-text {
+        width: max-content;
+        border: 1px solid;
+        border-radius: 3px;
+        background-color: #d5d2d2;
+    }
+
+    .input-text-drop {
+        margin-right: 8px;
+    }
+}
+
+.drop-btn-circle {
+    box-shadow: 0px 2px 4px 2px rgba(76, 76, 76, 1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+    background-color: white;
+}
+
+
+.drop-btn {
+    display: flex;
+}
+
+.icon {
+    img {
+        height: 40px;
+        filter: invert(100%);
+    }
+}
+
+.drop-item {
+    padding: 5px;
+    border-style: dotted;
+    border-width: 1px;
+    
+    &:hover {
+        background-color: #d0d0d0;
+        cursor: pointer;
+    }
+}
+
+.text {
+    .drop-btn-text {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.dropdown-table {    
+    .triangle-down {
+        margin-right: 12px;
+    }
+}
+
+
+.dropdown-form {
+    width: 156px;
+    display: flex;
+    flex-flow: column;
+    margin: 16px;
+    
+    .triangle-down {
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+    .drop-list{
+        width: 156px;
+    }
+
+    .drop-list {
+        margin-top: 52px;
+//        position: unset;
+    }
+    
+}
+
+.input-form.drop-btn-text.tag {
+    border: navajowhite;
+    background-color: transparent;
+
+    .input-text-drop{
+        width: 156px;
+    }
+}
+
+.input-form {
+    background-color: gainsboro;
+    border: 1px solid;
+    border-radius: 4px;
+    display: flex;
+    flex-flow: row;    
+}
+
+.label-drop {
+    margin-bottom: 8px
+}
+
+
+.input-text-drop {
+    width: 136px;
+}
+
+.drop-desabled {
+    .show-cursor-pointer {
+        cursor: auto;
+    }
+}

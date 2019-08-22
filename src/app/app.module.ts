@@ -13,6 +13,7 @@ import { HeaderComponent } from './common-components/header/header.component';
 import { SkillsTreeComponent } from './skills-tree/skills-tree.component';
 import { SkillContentDialogComponent } from './common-components/skill-content-dialog/skill-content-dialog.component';
 import { MenuComponent } from './common-components/menu/menu.component';
+import { DropdownSelectComponent } from './dropdown-select/dropdown-select.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MenuComponent } from './common-components/menu/menu.component';
     HeaderComponent,
     SkillsTreeComponent,
     SkillContentDialogComponent,
-    MenuComponent
+    MenuComponent,
+    DropdownSelectComponent
   ],
   entryComponents:[SkillContentDialogComponent],
   imports: [
