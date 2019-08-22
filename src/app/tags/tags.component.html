@@ -1,0 +1,6 @@
+<div [class]="tagClass">
+  <div *ngFor="let text of list; let i = index" class="tag">
+      <button class="button-discard" *ngIf=editList (click)="tagDiscard(i, $event)">x</button>
+    <span class="tag-text">{{text}}</span>
+  </div>
+</div>

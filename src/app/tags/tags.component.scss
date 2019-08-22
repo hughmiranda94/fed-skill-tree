@@ -1,0 +1,26 @@
+.tags-container {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.dropdown {
+    width: 400px;
+
+    .tag {
+    padding: 4px 12px 4px 0;
+    }
+}
+
+.tag {
+    border: 1px solid #727272;
+    padding: 4px 12px;
+    margin: 2px;
+    width: max-content;
+    border-radius: 5px;
+    background-color: gainsboro;
+    display: flex;
+}
+
+.button-discard {
+    border: none;
+}

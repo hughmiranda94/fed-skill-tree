@@ -14,6 +14,7 @@ import { SkillsTreeComponent } from './skills-tree/skills-tree.component';
 import { SkillContentDialogComponent } from './common-components/skill-content-dialog/skill-content-dialog.component';
 import { MenuComponent } from './common-components/menu/menu.component';
 import { DropdownSelectComponent } from './dropdown-select/dropdown-select.component';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DropdownSelectComponent } from './dropdown-select/dropdown-select.compo
     SkillsTreeComponent,
     SkillContentDialogComponent,
     MenuComponent,
-    DropdownSelectComponent
+    DropdownSelectComponent,
+    TagsComponent
   ],
   entryComponents:[SkillContentDialogComponent],
   imports: [
