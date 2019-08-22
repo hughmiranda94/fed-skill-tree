@@ -20,6 +20,7 @@ import { ButtonLinkComponent } from './button-link/button-link.component';
 import { ButtonFormComponent } from './button-form/button-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminTableComponent } from './admin/admin-table/admin-table.component';
+import { AdminCrudComponent } from './admin/admin-crud/admin-crud.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AdminTableComponent } from './admin/admin-table/admin-table.component';
     ButtonLinkComponent,
     ButtonFormComponent,
     AdminComponent,
-    AdminTableComponent
+    AdminTableComponent,
+    AdminCrudComponent
   ],
   entryComponents:[SkillContentDialogComponent],
   imports: [

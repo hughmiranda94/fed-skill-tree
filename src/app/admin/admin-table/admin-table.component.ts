@@ -6,9 +6,9 @@ import { HelperService } from '../../services/helper.service';
 import { TypeDataResolverService } from 'src/app/resolvers/admin-resolver.service';
 
 @Component({
-  selector: 'admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.scss']
+  selector: 'admin-table',
+  templateUrl: './admin-table.component.html',
+  styleUrls: ['./admin-table.component.scss']
 })
 export class AdminTableComponent implements OnInit {
 

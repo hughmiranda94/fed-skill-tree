@@ -1,0 +1,78 @@
+
+.formWrapper {
+    display: grid;
+    grid-gap: 4px;
+    margin: 100px 0;
+    
+    grid-auto-rows: minmax(28px, 28px);
+    grid-auto-columns: 80px;
+}
+
+
+@for $i from 0 through 15{
+    .row-#{$i} {
+        grid-row: $i + 1
+    }
+
+    .col-#{$i} {
+       grid-column: $i + 1
+    }      
+}  
+
+@for $s from 0 through 15{
+    @for $e from 0 through 15{
+        .row-#{$s}-#{$e} {
+            grid-row: #{$s + 1} / #{$e + 1}
+        }
+        
+        .col-#{$s}-#{$e} {
+            grid-column: #{$s + 1} / #{$e + 1}
+        }
+    }        
+}
+
+.inputs-drop {
+    //display: flex;
+    //flex-flow: row;
+    //width: 100%;
+}
+
+.inputs-TA {
+    //display: flex;
+    //flex-flow: row;
+    //width: 100%;
+    //margin: 16px;
+
+    .label-input {
+        //margin-bottom: 8px;
+    }
+}
+
+.buttons-form {
+    margin-top: 40px;
+}
+
+.form-container {
+    //display: flex;
+    //flex-flow: wrap;
+}
+
+
+.form-edit-container {
+    //display: flex;
+    //flex-flow: row;
+    border-bottom: 3px solid #dcdddd;
+}
+
+.tag-form-edit {
+    //display: flex;
+    //align-items: center;
+}
+
+.text-area {
+    margin: 16px;
+    
+    .label-input {
+        margin-bottom: 8px;
+    }
+}
