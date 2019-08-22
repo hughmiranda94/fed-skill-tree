@@ -1,0 +1,12 @@
+<section class="dashboard-container">
+  <p class="title">{{data.title}}</p>
+  <button-link [text]=data.textButton [link]=data.linkButton></button-link>
+
+  <table-admin 
+    [header]=data.header 
+    [table]=tableData 
+    [headerKey]=data.headerKey
+    (actions)="actionTable($event)">
+  </table-admin>
+  
+</section>
