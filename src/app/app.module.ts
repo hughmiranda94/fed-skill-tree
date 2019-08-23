@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { ButtonFormComponent } from './button-form/button-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminTableComponent } from './admin/admin-table/admin-table.component';
 import { AdminCrudComponent } from './admin/admin-crud/admin-crud.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +40,15 @@ import { AdminCrudComponent } from './admin/admin-crud/admin-crud.component';
     ButtonFormComponent,
     AdminComponent,
     AdminTableComponent,
-    AdminCrudComponent
+    AdminCrudComponent,
+    TableComponent
   ],
   entryComponents:[SkillContentDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
