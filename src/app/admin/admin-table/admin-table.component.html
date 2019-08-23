@@ -2,11 +2,11 @@
   <p class="title">{{data.title}}</p>
   <button-link [text]=data.textButton [link]=data.linkButton></button-link>
 
-  <table 
+  <table-data 
     [header]=data.header 
     [table]=tableData 
     [headerKey]=data.headerKey
     (actions)="actionTable($event)">
-  </table>
+  </table-data>
   
 </section>

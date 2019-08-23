@@ -21,7 +21,7 @@ import { ButtonFormComponent } from './button-form/button-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminTableComponent } from './admin/admin-table/admin-table.component';
 import { AdminCrudComponent } from './admin/admin-crud/admin-crud.component';
-import { TableComponent } from './table/table.component';
+import { TableDataComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { TableComponent } from './table/table.component';
     AdminComponent,
     AdminTableComponent,
     AdminCrudComponent,
-    TableComponent
+    TableDataComponent
   ],
   entryComponents:[SkillContentDialogComponent],
   imports: [

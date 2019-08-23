@@ -2,11 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input, OnChanges, SimpleChange
 import { HelperService } from '../services/helper.service';
 
 @Component({
-  selector: 'table',
+  selector: 'table-data',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableDataComponent implements OnInit, OnChanges {
   
   @Input() table;
   @Input() headerKey;
