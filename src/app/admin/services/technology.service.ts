@@ -17,7 +17,7 @@ export class TechnologyService implements Technology {
 
   constructor(private technologiesData :  TechnologiesDataService, private helper: HelperService) { }
 
-  
+
   getList(element, type){
     let body
     if(!type)
@@ -29,7 +29,7 @@ export class TechnologyService implements Technology {
   getKeys() {
     return ['id','parentId','name','tags','evaluationType', 'description']
   }
-  
+
   getDropFormat() {
     return [
       {
@@ -51,7 +51,7 @@ export class TechnologyService implements Technology {
     return []
   }
 
-  
+
   getTagFormat() {
     let list = this.getList(['tags'], false)
     //console.log(list)
@@ -65,7 +65,7 @@ export class TechnologyService implements Technology {
       }
     ]
   }
-  
+
   getTextFormat() {
     return [
       {
@@ -96,16 +96,17 @@ export class TechnologyService implements Technology {
     ]
   }
 
-  setVlues(data) {
-    if(Object.keys(data).length === 0)
-      data = this.defaultData()
+  setValues(data) {
+    if (Object.keys(data).length === 0) {
+      data = this.defaultData();
+    }
 
     this.id = data.id !== undefined? data.id : this.id;
     this.parentId = data.parentId !== undefined? data.parentId : this.parentId;
     this.name = data.name !== undefined? data.name : this.name;
     this.tags = data.tags !== undefined? data.tags : this.tags;
     this.description = data.description !== undefined? data.description : this.description;
-    this.evaluationType = data.evaluationType !== undefined? data.evaluationType : this.evaluationType;      
+    this.evaluationType = data.evaluationType !== undefined? data.evaluationType : this.evaluationType;
   }
 
   defaultData() {
@@ -116,9 +117,9 @@ export class TechnologyService implements Technology {
       tags: [],
       description: '',
       evaluationType: ''
-    }
+    };
   }
-  
+
   getDataS() {
     return {
       id: this.id? this.id : '',
@@ -130,20 +131,20 @@ export class TechnologyService implements Technology {
     }
   }
 
-  
+
   getDataEdit() {
     let keys = this.getKeys()
     let data = {}
 
     keys.forEach(item => {
-      if(Array.isArray(this[item])) data[item] = this[item]? this[item] : []
+      if (Array.isArray(this[item])) data[item] = this[item]? this[item] : []
       else
         switch (typeof this[item]) {
           case 'string':
               data[item] = this[item]? this[item] : ''
             break;
           case 'boolean':
-              data[item] = this[item]? this[item] : false            
+              data[item] = this[item]? this[item] : false
             break;
         }
 
@@ -172,9 +173,9 @@ export class TechnologyService implements Technology {
   getData() {
     return {
       title: 'TECHNOLOGIES',
-      textButton: 'CREATE THECHNOLOGY',
+      textButton: 'ADD TECHNOLOGY',
       linkButton: '../create',
-      header: ['Technology', 'Tags', 'Edit'],
+      header: ['Technology', 'Tags', ''],
       headerKey: ['name', 'tags', ''],
     }
   }

@@ -16,13 +16,13 @@ export class TopicService implements Topic {
   description: '';
 
   constructor(
-    private topicsData :  TopicsDataService, 
-    private helper: HelperService, 
+    private topicsData :  TopicsDataService,
+    private helper: HelperService,
     private technologiesData :  TechnologiesDataService) { }
 
   getList(element,type){
     let body = this[type].getSpecificData(element);
-    
+
     if(type === 'topicsData') {
       return this.helper.setFilterTopic(body, element)
     }
@@ -34,12 +34,12 @@ export class TopicService implements Topic {
   getKeys() {
     return ['id','technologyId','name','tags', 'description']
   }
-  
+
   getDropFormat() {
     return []
   }
 
-  
+
   oterTableDrop() {
     let list = this.getList(['name', 'id'], 'technologiesData')
 
@@ -53,7 +53,7 @@ export class TopicService implements Topic {
       }
     ]
   }
-  
+
   getTagFormat() {
     let list = this.getList(['tags'], 'topicsData')
 
@@ -67,7 +67,7 @@ export class TopicService implements Topic {
       }
     ]
   }
-  
+
   getTextFormat() {
     return [
       {
@@ -77,7 +77,7 @@ export class TopicService implements Topic {
       }
     ]
   }
-  
+
   getTextAreaFormat() {
     return [
       {
@@ -88,7 +88,7 @@ export class TopicService implements Topic {
     ]
   }
 
-  setVlues(data) {
+  setValues(data) {
     if(Object.keys(data).length === 0)
       data = this.defaultData()
 
@@ -96,10 +96,10 @@ export class TopicService implements Topic {
     this.name = data.name !== undefined? data.name : this.name;
     this.tags = data.tags !== undefined? data.tags : this.tags;
     this.description = data.description !== undefined? data.description : this.description;
-    this.technologyId = data.technologyId !== undefined? data.technologyId : this.technologyId;      
+    this.technologyId = data.technologyId !== undefined? data.technologyId : this.technologyId;
   }
 
-  
+
   defaultData() {
     return {
       id: '',
@@ -109,7 +109,7 @@ export class TopicService implements Topic {
       technologyId: ''
     }
   }
-  
+
   getDataS() {
     return {
       id: this.id? this.id : '',
@@ -120,7 +120,7 @@ export class TopicService implements Topic {
     }
   }
 
-  
+
   getDataEdit() {
     let keys = this.getKeys()
     let data = {}
@@ -133,7 +133,7 @@ export class TopicService implements Topic {
               data[item] = this[item]? this[item] : ''
             break;
           case 'boolean':
-              data[item] = this[item]? this[item] : false            
+              data[item] = this[item]? this[item] : false
             break;
         }
 
@@ -151,7 +151,7 @@ export class TopicService implements Topic {
       data[item] = element.name
     }
   }
-  
+
   getDataTable() {
     let keys = ['name', 'id', 'tags', 'technologyId']
     let data = this.topicsData.getSpecificData(keys);
@@ -169,9 +169,9 @@ export class TopicService implements Topic {
   getData() {
     return {
       title: 'TOPICS',
-      textButton: 'CREATE TOPIC',
+      textButton: 'ADD TOPIC',
       linkButton: '../create',
-      header: ['Technology', 'Topic', 'Tags', 'Edit'],
+      header: ['Technology', 'Topic', 'Tags', ''],
       headerKey: ['technologyId', 'name', 'tags', ''],
     }
   }

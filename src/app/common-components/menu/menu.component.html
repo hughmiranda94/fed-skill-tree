@@ -7,14 +7,11 @@
         <img *ngIf="!(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__forwards_arrow_black.png" class="menu-icon hide" (click)="toggleMenu()">
         <img *ngIf="(isNightMode$ | async)" src="../../assets/Acc_User_Interface_Off_Icon__forwards_arrow_white.png" class="menu-icon hide" (click)="toggleMenu()">
       <ul>
-        <li [routerLink]="['/home']" routerLinkActive="active">Home</li>
-        <li [routerLink]="['/tree']" routerLinkActive="active">Tree</li>
-        <li routerLinkActive="active">Settings</li>
-        <li (click)="toggleNightMode()">
-            <span>Night Mode:
-              <span *ngIf="!(isNightMode$ | async)">Off</span>
-              <span *ngIf="(isNightMode$ | async)">On</span>
-            </span>
+        <li *ngFor="let option of menuOptions" [routerLink]="option.routerLink" routerLinkActive="active">{{option.optionName}}</li>
+        <li (click)="toggleNightMode()" class="night-mode-option">
+            <span>Night Mode</span>
+            <span *ngIf="!(isNightMode$ | async)" class="on-off">Off</span>
+            <span *ngIf="(isNightMode$ | async)" class="on-off">On</span>
           </li>
       </ul>
     </div>

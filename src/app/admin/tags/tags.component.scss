@@ -1,0 +1,39 @@
+@import "../../styles/constants";
+
+.tags-container {
+    display: flex;
+    flex-flow: wrap;
+    margin: 0.5rem 0;
+
+    .dropdown {
+      width: 400px;
+      color: $fee-main-font;
+
+      .tag {
+      padding: 4px 12px 4px 0;
+      }
+  }
+
+  .tag {
+      color: $fee-tag-font;
+      padding: 4px 12px;
+      margin: 2px;
+      width: max-content;
+      border-radius: 5px;
+      background-color: $fee-tag-bg;
+      display: flex;
+      font-weight: 700;
+  }
+
+  .button-discard {
+      border: none;
+  }
+
+  &.night-mode {
+    .tag {
+      color: $fee-tag-font-night;
+      background-color: $fee-tag-bg-night;
+    }
+  }
+}
+

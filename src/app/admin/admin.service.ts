@@ -17,13 +17,13 @@ import { ReferencesDataService } from '../services/references-data.service';
 export class AdminService {
 
   constructor(
-    
+
     private technology: TechnologyService,
     private technologiesData: TechnologiesDataService,
-  
+
     private topic: TopicService,
     private topicsData: TopicsDataService,
-  
+
     private reference: ReferenceService,
     private referencesData: ReferencesDataService,
   ) { }
@@ -32,13 +32,13 @@ export class AdminService {
     technologies: this.technologiesData,
     topics: this.topicsData,
     references: this.referencesData
-  }
-  
+  };
+
   service = {
     technologies: this.technology,
     topics: this.topic,
     references: this.reference
-  }
+  };
 
   tablesJoin = [
     {
@@ -56,27 +56,23 @@ export class AdminService {
       tableData: 'topics',
       joinId: 'technologyId',
     }
-  ]
+  ];
 
   getTableJoin(table) {
-    let data = {}
-    
-    data = this.tablesJoin.find(item=>item.table === table)
-
-    return data
+    let data = {};
+    data = this.tablesJoin.find(item=>item.table === table);
+    return data;
   }
 
   getJoinByModel(model) {
-    let data = {}
-    
-    data = this.tablesJoin.find(item=>item.joinId === model)
-
-    return data
+    let data = {};
+    data = this.tablesJoin.find(item=>item.joinId === model);
+    return data;
   }
 
   getTypeData(type) {
-    let data
-    data = {type: type ? type : ' '}
-    return data
+    let data;
+    data = {type: type ? type : ' '};
+    return data;
   }
 }

@@ -1,3 +1,28 @@
+@import "../../styles/constants";
+
 .dashboard-container {
-    margin-top: 60px;
+  margin: 5rem 0;
+  width: 75vw;
+
+  .dashboard-header {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    .title {
+      color: $fee-main-font;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &.night-mode {
+    .dashboard-header {
+      .title {
+        color: $fee-main-font-night;
+      }
+    }
+  }
 }

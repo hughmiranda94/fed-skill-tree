@@ -1,4 +1,4 @@
-<div [class]="tagClass">
+<div [class]="tagClass" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <div *ngFor="let text of list; let i = index" class="tag">
       <button class="button-discard" *ngIf=editList (click)="tagDiscard(i, $event)">x</button>
     <span class="tag-text">{{text}}</span>

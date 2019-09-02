@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SettingsService } from 'src/app/settings.service';
 
 @Component({
   selector: 'tags',
@@ -11,10 +13,14 @@ export class TagsComponent implements OnInit {
   @Input() editList
   @Input() tagClass
 
-  @Output() listChange = new EventEmitter()
+  @Output() listChange = new EventEmitter();
+
+  public isNightMode$: Observable<boolean>;
 
 
-  constructor() { }
+  constructor(private settingsService: SettingsService) {
+    this.isNightMode$ = this.settingsService.isNightMode();
+  }
 
   ngOnInit() {
     this.tagClass = this.tagClass? `${this.tagClass} tags-container` : 'tags-container'

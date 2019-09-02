@@ -13,15 +13,15 @@ import { HeaderComponent } from './common-components/header/header.component';
 import { SkillsTreeComponent } from './skills-tree/skills-tree.component';
 import { SkillContentDialogComponent } from './common-components/skill-content-dialog/skill-content-dialog.component';
 import { MenuComponent } from './common-components/menu/menu.component';
-import { DropdownSelectComponent } from './dropdown-select/dropdown-select.component';
-import { TagsComponent } from './tags/tags.component';
-import { InputTextComponent } from './input-text/input-text.component';
-import { ButtonLinkComponent } from './button-link/button-link.component';
-import { ButtonFormComponent } from './button-form/button-form.component';
+import { DropdownSelectComponent } from './admin/dropdown-select/dropdown-select.component';
+import { TagsComponent } from './admin/tags/tags.component';
+import { InputTextComponent } from './admin/input-text/input-text.component';
+import { ButtonLinkComponent } from './admin/button-link/button-link.component';
+import { ButtonFormComponent } from './admin/button-form/button-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminTableComponent } from './admin/admin-table/admin-table.component';
 import { AdminCrudComponent } from './admin/admin-crud/admin-crud.component';
-import { TableDataComponent } from './table/table.component';
+import { TableDataComponent } from './admin/table/table.component';
 
 @NgModule({
   declarations: [

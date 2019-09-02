@@ -9,7 +9,7 @@ export class ButtonFormComponent implements OnInit {
   @Input() btnClass
   @Input() text
 
-  @Output() actionButton:EventEmitter<Object> = new EventEmitter()
+  @Output() actionButton:EventEmitter<Object> = new EventEmitter();
 
   constructor() { }
 

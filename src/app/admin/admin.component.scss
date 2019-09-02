@@ -1,6 +1,7 @@
 .admin-container {
-    width: max-content;
+    width: 100%;
     display: flex;
-    margin: auto;
-    flex-flow: column;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }

@@ -22,9 +22,9 @@ export class ReferenceService implements Reference {
   subscriptionNeeded: false;
 
   constructor(
-    private references : ReferencesDataService, 
+    private references : ReferencesDataService,
     private helper: HelperService,
-    private technologies :  TechnologiesDataService, 
+    private technologies :  TechnologiesDataService,
     private topics :  TopicsDataService
   ) { }
 
@@ -36,7 +36,7 @@ export class ReferenceService implements Reference {
 
   getList(element, type){
     let body = this[type].getSpecificData(element);
-  
+
     if(type === 'references') {
       return this.helper.setFilterTopic(body, element)
     }
@@ -44,7 +44,7 @@ export class ReferenceService implements Reference {
       return this.helper.dropdownObjectToArray(body, element[0], element[1])
     }
   }
-  
+
 
   getKeys() {
     return ['id','topicId','name','tags', 'description','class', 'url', 'technologyId']
@@ -64,7 +64,7 @@ export class ReferenceService implements Reference {
   oterTableDrop() {
     let list = []
     list.push(this.getList(['name', 'id'], 'technologies'))
-    
+
     return [
       {
         key: 'technologyId',
@@ -84,7 +84,7 @@ export class ReferenceService implements Reference {
       }
     ]
   }
-  
+
   getTagFormat() {
     let list = this.getList(['tags'], 'references')
 
@@ -98,7 +98,7 @@ export class ReferenceService implements Reference {
       }
     ]
   }
-  
+
   getTextFormat() {
     return [
       {
@@ -113,7 +113,7 @@ export class ReferenceService implements Reference {
       }
     ]
   }
-  
+
   getTextAreaFormat() {
     return [
       {
@@ -134,7 +134,7 @@ export class ReferenceService implements Reference {
     ]
   }
 
-  setVlues(data) {
+  setValues(data) {
     if(Object.keys(data).length === 0)
       data = this.defaultData()
 
@@ -151,7 +151,7 @@ export class ReferenceService implements Reference {
   defaultData() {
     return {
       id: '',
-      topicId: '',      
+      topicId: '',
       name: '',
       class: '',
       tags: [],
@@ -160,11 +160,11 @@ export class ReferenceService implements Reference {
       subscriptionNeeded: false
     }
   }
-  
+
   getDataS() {
     return {
       id: this.id? this.id : '',
-      topicId: this.topicId? this.topicId : '',      
+      topicId: this.topicId? this.topicId : '',
       name: this.name? this.name : '',
       class: this.class? this.class : '',
       tags: this.tags? this.tags : [],
@@ -186,7 +186,7 @@ export class ReferenceService implements Reference {
               data[item] = this[item]? this[item] : ''
             break;
           case 'boolean':
-              data[item] = this[item]? this[item] : false            
+              data[item] = this[item]? this[item] : false
             break;
         }
 
@@ -230,9 +230,9 @@ export class ReferenceService implements Reference {
   getData() {
     return {
       title: 'REFERENCES',
-      textButton: 'CREATE REFERENCE',
+      textButton: 'ADD REFERENCE',
       linkButton: '../create',
-      header: ['Technology', 'Topic', 'Reference', 'Url', 'Edit'],
+      header: ['Technology', 'Topic', 'Reference', 'Url', ''],
       headerKey: ['technologyId', 'topicId', 'name', 'url', ''],
     }
   }

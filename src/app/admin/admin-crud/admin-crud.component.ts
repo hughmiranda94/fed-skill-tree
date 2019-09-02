@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {  Router, ActivatedRoute } from '@angular/router';
 import { AdminService } from '../admin.service';
 import { HelperService } from '../../services/helper.service';
-import { ReferenceResolverService, TypeDataResolverService, TechnologyResolverService, TopicResolverService } from 'src/app/resolvers/admin-resolver.service';
+import {
+  ReferenceResolverService,
+  TypeDataResolverService,
+  TechnologyResolverService,
+  TopicResolverService
+} from 'src/app/admin/resolvers/admin-resolver.service';
 
 @Component({
   selector: 'admin-crud',
@@ -11,7 +16,7 @@ import { ReferenceResolverService, TypeDataResolverService, TechnologyResolverSe
 })
 export class AdminCrudComponent implements OnInit {
 
-  inputT
+  inputT;
   inputTA
   inputD
   inputTags
@@ -34,12 +39,12 @@ export class AdminCrudComponent implements OnInit {
     private adminService : AdminService,
   ) {
   }
-  
+
   ngOnInit() {
     this.setService()
 
     this.setInputDrop()
-    
+
     this.inputT = this.service.getTextFormat()
     this.inputTA = this.service.getTextAreaFormat()
     this.inputTags = this.service.getTagFormat()
@@ -58,7 +63,7 @@ export class AdminCrudComponent implements OnInit {
   editData() {
     this.editInfo['inputs'] = this.inputT.concat(this.inputD).concat(this.inputTA)
     this.editInfo['data'] = this.service.getDataEdit()
-    
+
     this.tagInfo = []
 
     this.tagInfo = this.inputTags.map(item => {
@@ -71,26 +76,26 @@ export class AdminCrudComponent implements OnInit {
       }
     })
   }
-  
+
   setService() {
     const resolvedDataType: TypeDataResolverService = this.route.snapshot.data['type']
     let data = resolvedDataType
-    
+
     this.typeData(data)
-    
+
     this.service = this.adminService.service[data.type]
     this.data = this.adminService.data[data.type]
-    
-    this.service.setVlues({})
-    
+
+    this.service.setValues({})
+
     this.inputDropTables = this.service.oterTableDrop()
-    
+
     if(this.searchId) {
       this.edit = true
 
-      
-      this.service.setVlues(this.searchId)
-  
+
+      this.service.setValues(this.searchId)
+
       this.dropRelation()
 
     }
@@ -132,7 +137,7 @@ export class AdminCrudComponent implements OnInit {
     item.list = this.service.getListJoin(table, find)
 
     item.disabled = !!find.empty
-    
+
     return item
   }
 
@@ -143,10 +148,10 @@ export class AdminCrudComponent implements OnInit {
     this.inputDropTables.map(dependItem => {
       if(!!dependItem.showFrom) {
         table = this.adminService.getJoinByModel(dependItem.showFrom.model)
-  
+
         let model = this.adminService.data[table.tableData].getSpecificId(this.service[dependItem.model])
         this.service[table.joinId] = model[table.joinId]
-        
+
         dependItem = this.setDrop(dependItem, this.service[table.joinId])
       }
 
@@ -156,7 +161,7 @@ export class AdminCrudComponent implements OnInit {
 
   setInputDrop() {
     this.inputD = this.service.getDropFormat()
-    
+
     this.inputD.map(item => {
       item.list = this.data.getSpecificData(item.keys)
 
@@ -166,27 +171,27 @@ export class AdminCrudComponent implements OnInit {
       }
       else
         item.list = this.helper.dropdownObjectToArray(item.list, item.keys[0], item.keys[1])
-      
+
       return item
     })
   }
 
   setVlueTag(type, value) {
-    this.service.setVlues({[type]: value})
+    this.service.setValues({[type]: value})
   }
-  
+
   setVlue(data, element) {
     if(element.empty) {
       this.inputD = this.checkDrop(this.inputD, data, element)
-      this.service.setVlues({[data.model]: null})
+      this.service.setValues({[data.model]: null})
     }
     else {
       this.inputD = this.checkDrop(this.inputD, data, element.value)
-      this.service.setVlues({[data.model]: element.value})
+      this.service.setValues({[data.model]: element.value})
     }
   }
 
-  
+
 
   save($event) {
     if($event.clientX !== 0) {

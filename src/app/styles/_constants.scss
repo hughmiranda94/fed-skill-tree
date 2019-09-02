@@ -8,6 +8,7 @@ $fee-white: #FFFFFF;
 $fee-black: #000000;
 $fee-bluesky: #D7E6E6;
 $fee-gray-border: #707070;
+$fee-gray-border-dark: #505050;
 $fee-night-light: #2B2B2B;
 $fee-night-dark: #1D1F21;
 $fee-day-light: #FFFFFF;
@@ -27,6 +28,8 @@ $fee-border: $fee-gray-border;
 $fee-card-bg: $fee-gray-medium;
 $fee-shadow: $fee-black;
 $fee-menu-bg: $fee-gray-light;
+$fee-tag-bg: $fee-bluesky;
+$fee-tag-font: $fee-gray;
 
 //NIGHT MODE
 $fee-main-font-night: $fee-white;
@@ -36,8 +39,10 @@ $fee-acc-light-night: $fee-cyan-light;
 $fee-acc-dark: $fee-cyan-dark;
 $fee-bg-light-night: $fee-night-light;
 $fee-bg-dark-night: $fee-night-dark;
-$fee-border-night: $fee-gray-border;
+$fee-border-night: $fee-gray-border-dark;
 $fee-card-bg-night: $fee-dark;
 $fee-shadow-night: $fee-white;
 $fee-menu-bg-night: $fee-night-dark;
+$fee-tag-bg-night: $fee-gray;
+$fee-tag-font-night: $fee-bluesky;
 

@@ -1,5 +1,5 @@
 
-<div [class]="classDrop">
+<div [class]="classDrop" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <div *ngIf="type == 'text' && !changeText" class="drop-btn-text show-cursor-pointer" (click)="showDown()">
     <div class="triangle-down"></div>
     <p class="brop-text">{{title}}</p>

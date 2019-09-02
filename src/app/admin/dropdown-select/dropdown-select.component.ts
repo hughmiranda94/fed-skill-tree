@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { SettingsService } from 'src/app/settings.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'dropdown-select',
@@ -6,38 +8,42 @@ import { Component, OnInit, Output, Input, EventEmitter, OnChanges, SimpleChange
   styleUrls: ['./dropdown-select.component.scss']
 })
 export class DropdownSelectComponent implements OnInit, OnChanges {
-  
+
   @Input() type
   @Input() list
   @Input() changeText
   @Input() id
   @Input() label
   @Input() tagsList
-  
+
   @Input() title
   @Output() titleChange = new EventEmitter()
-  
+
   @Input() classDrop
   @Input() selected
   @Input() disabledDrop
-  
+
   @Output() itemDrop:EventEmitter<Object> = new EventEmitter();
-  
+
   show;
   titleList
   editList
-  classInput = ''
-  
-  constructor() { }
-  
+  classInput = '';
+
+  public isNightMode$: Observable<boolean>;
+
+  constructor(private settingsService: SettingsService) {
+      this.isNightMode$ = this.settingsService.isNightMode();
+    }
+
   ngOnChanges(changes: SimpleChanges) {
     if(!this.disabledDrop)
-      this.classInput = this.classInput.replace(/(drop-desabled)$/g,'')
+      this.classInput = this.classInput.replace(/(drop-disabled)$/g,'')
     else
-      this.classInput = `${this.classInput} drop-desabled`
+      this.classInput = `${this.classInput} drop-disabled`
 
       this.title = (this.selected === '')? '' : this.title
-      
+
       this.show = (this.selected === '')? false : this.show
 
   }
@@ -45,26 +51,26 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.setModel()
   }
-  
+
   setModel() {
     if(!this.tagsList)
       this.tagsList = []
-    
+
     if(this.selected)
       this.defaultData()
-  
+
     this.editList = this.list.slice()
-  
-    this.title = (!this.changeText)? this.title : this.titleList; 
-    
+
+    this.title = (!this.changeText)? this.title : this.titleList;
+
     this.classInput = this.classDrop? `input-${this.classDrop} drop-btn-text` : 'input drop-btn-text'
 
-    this.classInput = this.disabledDrop? `${this.classInput} drop-desabled` : this.classInput
-    
+    this.classInput = this.disabledDrop? `${this.classInput} drop-disabled` : this.classInput
+
     this.classDrop = this.classDrop? `dropdown-${this.classDrop}` : 'dropdown'
-    
+
     this.classDrop = this.type? `${this.classDrop} ${this.type}` : this.classDrop
-    
+
     this.show = false
   }
 
@@ -80,7 +86,7 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
   }
 
   selectItem(item) {
-    if(this.type === 'tag') 
+    if(this.type === 'tag')
       this.addTag(item.text)
     else {
       if(this.changeText)
@@ -88,14 +94,14 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
 
       if(!this.changeText && this.type !== 'navbar') {
         this.title = this.title.replace(/[(](.*)[)]$/g,'')
-    
+
         if(item.text !== 'All')
           this.title = (!this.changeText)? `${this.title} (${item.text})` : item.text;
       }
 
       if(this.itemDrop)
         this.itemDrop.emit(item);
-      
+
       this.titleChange.emit(this.title)
     }
 
@@ -110,7 +116,7 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
     if(item.code === 'Enter' && this.type === 'tag') {
       if(this.title)
         this.addTag(this.title)
-      
+
       this.showDown()
     }
   }
@@ -121,7 +127,7 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
 
     if(!notRepeat) {
       notRepeat = !!this.editList.find(element => element.text === item)
-      
+
       if(notRepeat) {
         let pos
 
@@ -133,12 +139,12 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
         }
 
         this.editList.splice(pos, 1)
-      } 
+      }
 
       this.tagsList.push(item)
-  
+
     }
-    
+
     if(this.itemDrop)
       this.itemDrop.emit(this.tagsList);
   }
@@ -150,16 +156,16 @@ export class DropdownSelectComponent implements OnInit, OnChanges {
 
     if(!this.disabledDrop) {
       this.editList = this.list.slice()
-        
+
       this.editList = this.editList.filter(element => {
         let findTag = !!this.tagsList.find(item => item === element.text)
-  
+
         if (findTag)
           return false
-  
+
         return !!(element.text.toUpperCase().indexOf(item.toUpperCase()) > -1)
       });
-        
+
       this.show = clickInput? !this.show : true
     }
   }

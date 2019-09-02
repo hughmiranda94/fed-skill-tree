@@ -1,20 +1,20 @@
-<table class="table-admin">
+<table class="table-admin" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <tr>
-    <th *ngFor="let rowHeader of table.header; let i = index" class="table-content index-{{i}} header">
+    <th *ngFor="let rowHeader of table.header; let i = index" class="table-content index-{{i}} header" [ngClass]="{'last-index': i === (table.header.length - 1)}">
       <div class="table-element">
         <span *ngIf="!rowHeader.notText" class="table-text">{{rowHeader.text}}</span>
         <div *ngFor="let element of rowHeader.elements; let i = index">
-          <dropdown-select *ngIf="element.type == 'filterText'" 
+          <dropdown-select *ngIf="element.type == 'filterText'"
           [title] = rowHeader.text
           [changeText] = false
-          [type]= "'text'" 
+          [type]= "'text'"
           [classDrop] = "'table'"
           [list] = element.list
           (itemDrop)="dropFilter($event)"></dropdown-select>
-          <dropdown-select *ngIf="element.type == 'filterTopic'" 
+          <dropdown-select *ngIf="element.type == 'filterTopic'"
           [title] = rowHeader.text
           [changeText] = false
-          [type]= "'text'" 
+          [type]= "'text'"
           [classDrop] = "'table'"
           [list] = element.list
           (itemDrop)="dropFilterTopic($event)"></dropdown-select>
@@ -22,34 +22,32 @@
       </div>
     </th>
   </tr>
-  
+
   <tr *ngFor="let rowBody of tableEdit">
-    <td *ngFor="let column of rowBody ; let iBody = index" class="table-content index-{{iBody}}">
-      <div class="table-element">        
+    <td *ngFor="let column of rowBody ; let iBody = index" class="table-content index-{{iBody}}" [ngClass]="{'last-index': iBody === (rowBody.length - 1)}">
+      <div class="table-element">
         <div *ngFor="let element of column.elements; let i = index">
           <div class="table-element" *ngIf="element.type == 'linkButton'">
               <button-link [text]=element.text [link]=element.url [classButton]="'table'"></button-link>
           </div>
-          
           <div *ngIf="element.type == 'tags' && element[element.headerKey].length > 0">
-
-            <tags *ngIf="!element.showMore" 
-              [list]="element[element.headerKey].slice(0,2)"
+            <tags *ngIf="!element.showMore"
+              [list]="element[element.headerKey].slice(0,3)"
             ></tags>
-            <div *ngIf="element[element.headerKey].length > 2 && !element.showMore" class="show-cursor-pointer" (click)="element.showMore = true">
-              See more...
+            <div *ngIf="element[element.headerKey].length > 3 && !element.showMore" class="show-cursor-pointer" (click)="element.showMore = true">
+              <span class="see-toggle">See more...</span>
             </div>
             <div *ngIf="element.showMore" class="show-cursor-pointer" (click)="element.showMore = false">
               <tags *ngIf="element.type == 'tags'"
                 [(list)]="element[element.headerKey]"
               ></tags>
-              See less...
+              <span class="see-toggle">See less...</span>
             </div>
           </div>
-          
+
         </div>
         <span *ngIf="!column.notText">{{column.text}}</span>
-      </div>      
+      </div>
       </td>
     </tr>
 </table>

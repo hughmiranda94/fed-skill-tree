@@ -1,0 +1,79 @@
+@import "../../styles/constants";
+
+.table-admin {
+  border-spacing: 0;
+  margin: 20px auto;
+  width: 100%;
+
+  tr {
+    min-height: 3rem;
+  }
+
+  .table-content {
+    border-right: 1px solid $fee-border;
+    border-bottom: 1px solid $fee-border;
+  }
+
+  .index-0 {
+    border-left: 1px solid $fee-border;
+
+    &.header {
+      border-top-left-radius: 5px;
+    }
+  }
+
+  .last-index {
+    border-right: none;
+    border-bottom: none;
+
+    &.header {
+      background-color: transparent;
+      border-top: none;
+    }
+  }
+
+  .header {
+    background-color: $fee-card-bg;
+    border-top: 1px solid $fee-border;
+  }
+
+  .table-element {
+    color: $fee-main-font;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 10px 10px;
+  }
+
+  .header-text {
+    margin-left: 5px;
+  }
+
+  .see-toggle {
+    font-size: 0.75rem;
+  }
+
+  &.night-mode {
+    .table-content {
+      border-color: $fee-border-night;
+    }
+    .index-0 {
+      border-color: $fee-border-night;
+    }
+    .header {
+      background-color: $fee-card-bg-night;
+      border-color: $fee-border-night;
+    }
+    .last-index {
+      &.header {
+        background-color: transparent;
+      }
+    }
+    .table-element {
+      color: $fee-main-font-night;
+    }
+  }
+}
+
+

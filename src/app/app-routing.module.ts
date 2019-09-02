@@ -5,7 +5,12 @@ import { SkillsTreeComponent } from '../app/skills-tree/skills-tree.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminTableComponent } from './admin/admin-table/admin-table.component';
 import { AdminCrudComponent } from './admin/admin-crud/admin-crud.component';
-import { TypeDataResolverService, TechnologyResolverService, TopicResolverService, ReferenceResolverService } from './resolvers/admin-resolver.service';
+import {
+  TypeDataResolverService,
+  TechnologyResolverService,
+  TopicResolverService,
+  ReferenceResolverService
+} from './admin/resolvers/admin-resolver.service';
 
 const routes: Routes = [
   {path: 'home', component: LandingPageComponent},
@@ -18,7 +23,7 @@ const routes: Routes = [
         path: ':type/table',
         component: AdminTableComponent,
         resolve: {
-          data: TypeDataResolverService       
+          data: TypeDataResolverService
         }
       },
       {

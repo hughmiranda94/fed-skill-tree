@@ -11,9 +11,9 @@ export class InputTextComponent implements OnInit {
   @Input() id
   @Input() topics
   @Input() disabledText
-  
+
   @Input() inputText
-  @Output() inputTextChange = new EventEmitter()
+  @Output() inputTextChange = new EventEmitter();
 
   constructor() { }
 
