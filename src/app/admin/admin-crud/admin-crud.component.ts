@@ -8,6 +8,8 @@ import {
   TechnologyResolverService,
   TopicResolverService
 } from 'src/app/admin/resolvers/admin-resolver.service';
+import { Observable } from 'rxjs';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'admin-crud',
@@ -32,71 +34,67 @@ export class AdminCrudComponent implements OnInit {
   }
   tagInfo
 
+  public resolvedDataType: TypeDataResolverService;
+  public singularDataType: string;
+
+  public isNightMode$: Observable<boolean>;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private helper: HelperService,
-    private adminService : AdminService,
+    private adminService: AdminService,
+    private settingsService: SettingsService
   ) {
+
+    this.isNightMode$ = this.settingsService.isNightMode();
   }
 
   ngOnInit() {
-    this.setService()
 
-    this.setInputDrop()
+    this.resolvedDataType = this.route.snapshot.data['type'];
+    this.setService();
+    this.setInputDrop();
+    this.inputT = this.service.getTextFormat();
+    this.inputTA = this.service.getTextAreaFormat();
+    this.inputTags = this.service.getTagFormat();
 
-    this.inputT = this.service.getTextFormat()
-    this.inputTA = this.service.getTextAreaFormat()
-    this.inputTags = this.service.getTagFormat()
-
-    this.inputD = this.inputD.concat(this.inputDropTables)
+    this.inputD = this.inputD.concat(this.inputDropTables);
 
     this.inputTags.map(item => {
-      item.list = this.helper.dropdownArray(item.list, item.list)
-
-      return item
-    })
-
-    if(this.edit) this.editData()
+      item.list = this.helper.dropdownArray(item.list, item.list);
+      return item;
+    });
+    this.edit ? this.editData() : '';
     }
 
   editData() {
     this.editInfo['inputs'] = this.inputT.concat(this.inputD).concat(this.inputTA)
     this.editInfo['data'] = this.service.getDataEdit()
 
-    this.tagInfo = []
+    this.tagInfo = [];
 
     this.tagInfo = this.inputTags.map(item => {
-      let list = new Array(this.service[item.key].length)
-      list = this.service[item.key].map(item=>item)
-
+      let list = new Array(this.service[item.key].length);
+      list = this.service[item.key].map(item => item);
       return {
         list: list,
         label: item.label
-      }
-    })
+      };
+    });
   }
 
   setService() {
-    const resolvedDataType: TypeDataResolverService = this.route.snapshot.data['type']
-    let data = resolvedDataType
-
-    this.typeData(data)
-
-    this.service = this.adminService.service[data.type]
-    this.data = this.adminService.data[data.type]
-
-    this.service.setValues({})
-
-    this.inputDropTables = this.service.oterTableDrop()
-
-    if(this.searchId) {
-      this.edit = true
-
-
-      this.service.setValues(this.searchId)
-
-      this.dropRelation()
+    const dataType = this.resolvedDataType.type;
+    this.typeData(this.resolvedDataType);
+    this.service = this.adminService.service[dataType];
+    this.data = this.adminService.data[dataType];
+    this.service.setValues({});
+    this.inputDropTables = this.service.oterTableDrop();
+    if (this.searchId) {
+      this.edit = true;
+      this.service.setValues(this.searchId);
+      this.dropRelation();
 
     }
   }
@@ -104,16 +102,19 @@ export class AdminCrudComponent implements OnInit {
   typeData(data) {
     switch (data.type) {
       case 'technologies':
-        const dataTechnology: TechnologyResolverService = this.route.snapshot.data['dataTechnology']
-        this.searchId = dataTechnology
+        const dataTechnology: TechnologyResolverService = this.route.snapshot.data['dataTechnology'];
+        this.singularDataType = 'Technology';
+        this.searchId = dataTechnology;
         break;
       case 'topics':
-        const dataTopic: TopicResolverService = this.route.snapshot.data['dataTopic']
-        this.searchId = dataTopic
+        const dataTopic: TopicResolverService = this.route.snapshot.data['dataTopic'];
+        this.singularDataType = 'Topic';
+        this.searchId = dataTopic;
         break;
       case 'references':
-        const dataReference: ReferenceResolverService = this.route.snapshot.data['dataReference']
-        this.searchId = dataReference
+        const dataReference: ReferenceResolverService = this.route.snapshot.data['dataReference'];
+        this.singularDataType = 'Reference';
+        this.searchId = dataReference;
         break;
       }
   }

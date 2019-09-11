@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { SettingsService } from 'src/app/settings.service';
+import { SettingsService } from 'src/app/services/settings.service';
 import { Observable } from 'rxjs';
 
 @Component({

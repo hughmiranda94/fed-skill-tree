@@ -1,78 +1,75 @@
-
-.formWrapper {
-    display: grid;
-    grid-gap: 4px;
-    margin: 100px 0;
-    
-    grid-auto-rows: minmax(28px, 28px);
-    grid-auto-columns: 80px;
-}
+@import "../../styles/constants";
 
 
-@for $i from 0 through 15{
-    .row-#{$i} {
-        grid-row: $i + 1
-    }
+.form-container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50vw;
+  margin: 2rem;
 
-    .col-#{$i} {
-       grid-column: $i + 1
-    }      
-}  
-
-@for $s from 0 through 15{
-    @for $e from 0 through 15{
-        .row-#{$s}-#{$e} {
-            grid-row: #{$s + 1} / #{$e + 1}
-        }
-        
-        .col-#{$s}-#{$e} {
-            grid-column: #{$s + 1} / #{$e + 1}
-        }
-    }        
-}
-
-.inputs-drop {
-    //display: flex;
-    //flex-flow: row;
-    //width: 100%;
-}
-
-.inputs-TA {
-    //display: flex;
-    //flex-flow: row;
-    //width: 100%;
-    //margin: 16px;
-
-    .label-input {
-        //margin-bottom: 8px;
-    }
-}
-
-.buttons-form {
+  .buttons-form {
     margin-top: 40px;
 }
 
-.form-container {
-    //display: flex;
-    //flex-flow: wrap;
-}
+  .crud-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $fee-main-font;
+  }
 
+  .form-group {
+    margin: 1rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-.form-edit-container {
-    //display: flex;
-    //flex-flow: row;
-    border-bottom: 3px solid #dcdddd;
-}
+  .text-area {
+    textarea {
+      background-color: transparent;
+      width: 100%;
+      box-sizing: border-box;
+      resize: none;
+      border: 1px solid $fee-border;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: $fee-main-font;
+      padding: 0.5rem;
+      outline: none;
 
-.tag-form-edit {
-    //display: flex;
-    //align-items: center;
-}
-
-.text-area {
-    margin: 16px;
-    
-    .label-input {
-        margin-bottom: 8px;
+      &:focus {
+        box-shadow: 0 0 1rem rgba($fee-shadow, 0.25);
+      }
     }
+
+    .label-input {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $fee-second-font;
+    }
+  }
+
+  &.night-mode {
+    .crud-title {
+      color: $fee-main-font-night;
+    }
+
+    .text-area {
+      textarea {
+        border: 1px solid $fee-border-night;
+        color: $fee-main-font-night;
+
+        &:focus {
+          box-shadow: 0 0 1rem rgba($fee-shadow-night, 0.25);
+        }
+      }
+      .label-input {
+        color: $fee-second-font-night;
+      }
+    }
+
+  }
 }
+

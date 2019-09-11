@@ -1,83 +1,66 @@
-<div *ngIf="edit" class="form-edit-container">
-    <input-text *ngFor="let inputText of editInfo.inputs"
-      [id] = "inputText.key ? inputText.key : inputText.model"
-      [label] = "inputText.text ? inputText.text : inputText.label"
-      [disabledText] = "true"
-      [(inputText)] = "editInfo.data[inputText.key ? inputText.key : inputText.model]" 
-    ></input-text>
-    <div class="tag-form-edit">
-      <div *ngFor="let inputT of tagInfo">
-        <p>{{inputT.label}}</p>
-        <tags
-          [(list)]="inputT.list"
-        ></tags>
-      </div>
-    </div>  
-</div>
-
-<form class="form-container formWrapper">
-
-  
-  <div *ngFor="let inputText of inputT; let i = index" [ngClass]="inputText.pos">
-    <input-text 
+<form class="form-container" [ngClass]="{'night-mode': (isNightMode$ | async)}">
+  <h2 *ngIf="edit" class="crud-title">EDIT {{singularDataType | uppercase}}</h2>
+  <h2 *ngIf="!edit" class="crud-title">ADD {{singularDataType | uppercase}}</h2>
+  <div *ngFor="let inputText of inputT; let i = index" class="form-group">
+    <input-text
       [id] = "inputText.key"
       [label] = "inputText.text"
-      [(inputText)] = "service[inputText.key]" 
+      [(inputText)] = "service[inputText.key]"
     ></input-text>
   </div>
-  
-  <dropdown-select  *ngFor="let inputTag of inputTags; let i = index" [ngClass]="inputTag.pos"
+  <dropdown-select  *ngFor="let inputTag of inputTags; let i = index"
     (itemDrop) = "setVlueTag(inputTag.key, $event)"
     [changeText] = true
-    [type]= "'tag'" 
+    [type]= "'tag'"
     [classDrop] = "'form'"
     [list] = inputTag.list
     [id] = i
     [label] = inputTag.label
-    [selected] = service[inputTag.key]>
+    [selected] = service[inputTag.key]
+    class="form-group">
   </dropdown-select>
 
-  <dropdown-select  *ngFor="let inputDrop of inputD; let i = index" [ngClass]="inputDrop.pos"
+  <dropdown-select  *ngFor="let inputDrop of inputD; let i = index"
     [disabledDrop] = "inputDrop.disabled"
     (itemDrop) = "setVlue(inputDrop, $event)"
     [changeText] = true
-    [type]= "'text'" 
+    [type]= "'text'"
     [classDrop] = "'form'"
     [list] = inputDrop.list
     [id] = i
     [label] = inputDrop.label
-    [selected] = service[inputDrop.model]>
+    [selected] = service[inputDrop.model]
+    class="form-group">
   </dropdown-select>
-  
-  <div *ngFor="let inputTextArea of inputTA" [ngClass]="inputTextArea.pos">
+
+  <div *ngFor="let inputTextArea of inputTA" class="form-group">
     <div class="text-area">
       <p class="label-input" >{{inputTextArea.text}}</p>
       <textarea
-        id="{{inputTextArea.key}}" 
-        cols="30" 
+        id="{{inputTextArea.key}}"
         rows="10">{{service[inputTextArea.key]}}</textarea>
     </div>
   </div>
-    
+
     <!--
     </div>
 
     <div class="buttons-form">
-      <button-form 
+      <button-form
       [text]="'CANCEL'"
       [btnClass]="'primary'"
       (click)="cancel($event)"
       ></button-form>
-      <button-form 
+      <button-form
       [text]="'SAVE'"
       [btnClass]="'secondary'"
       (click)="save($event)"
       ></button-form>
-      <button-form 
+      <button-form
       [text]="'SAVE & CREATE TOPICS'"
       [btnClass]="'secondary'"
       (click)="saveCreate($event)"
       ></button-form>
     </div>
   -->
-  </form>
+</form>

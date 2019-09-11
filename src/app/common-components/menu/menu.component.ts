@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from 'src/app/menu.service';
-import { SettingsService } from 'src/app/settings.service';
+import { MenuService } from 'src/app/services/menu.service';
+import { SettingsService } from 'src/app/services/settings.service';
 import { Observable } from 'rxjs';
-import { UserDataService } from 'src/app/user-data.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-menu',

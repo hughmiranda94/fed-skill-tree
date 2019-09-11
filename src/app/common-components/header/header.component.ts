@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SkillsDataService } from '../../skills-data.service';
+import { SkillsDataService } from '../../services/skills-data.service';
 import { Observable } from 'rxjs';
-import { SettingsService } from 'src/app/settings.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-header',

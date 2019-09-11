@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SkillsDataService } from '../skills-data.service';
-import { SettingsService } from '../settings.service';
+import { SkillsDataService } from '../services/skills-data.service';
+import { SettingsService } from '../services/settings.service';
 import { Observable } from 'rxjs';
-import { UserDataService } from '../user-data.service';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-skills-tree',

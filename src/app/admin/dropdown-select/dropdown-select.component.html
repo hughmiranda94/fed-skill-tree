@@ -1,5 +1,5 @@
 
-<div [class]="classDrop" [ngClass]="{'night-mode': (isNightMode$ | async)}">
+<div [class]="classDrop" [ngClass]="{'night-mode': (isNightMode$ | async)}" class="dropdown-container">
   <div *ngIf="type == 'text' && !changeText" class="drop-btn-text show-cursor-pointer" (click)="showDown()">
     <div class="triangle-down"></div>
     <p class="brop-text">{{title}}</p>
@@ -8,7 +8,9 @@
   <label *ngIf="changeText" class="label-drop" for="{{id}}">{{label}}</label>
   <div *ngIf="changeText" [class]="classInput" [ngClass] ="type" (click)="filterDrop('', true)" >
     <input type="text" id="{{id}}" autocomplete="off" class="input-text-drop" [(ngModel)]="title" (keyup)="keypres($event)" (ngModelChange)="filterDrop(title, false)" [disabled] = "disabledDrop">
-    <div *ngIf="type !== 'tag'" class="triangle-down show-cursor-pointer"></div>
+    <div *ngIf="type !== 'tag'" class="triangle-container">
+      <div  class="triangle-down show-cursor-pointer"></div>
+    </div>
   </div>
 
   <div *ngIf="type == 'navbar'" class="drop-btn-circle show-cursor-pointer" (click)="showDown()">

@@ -27,12 +27,33 @@
 
   .button-discard {
       border: none;
+      border-radius: 50%;
+      background-color: $fee-tag-bg-night;
+      color: $fee-main-font-night;
+      font-weight: 700;
+      line-height: 1rem;
+      width: 1.12rem;
+      text-align: center;
+      margin-right: 0.5rem;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        cursor: pointer;
+      }
   }
 
   &.night-mode {
     .tag {
       color: $fee-tag-font-night;
       background-color: $fee-tag-bg-night;
+    }
+
+    .button-discard {
+      background-color: $fee-tag-bg;
+      color: $fee-main-font;
     }
   }
 }

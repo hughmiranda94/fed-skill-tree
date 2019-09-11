@@ -19,23 +19,18 @@ export class MenuService {
       routerLink: ['/tree'],
       adminOption: false
     },
-    // {
-    //   optionName: 'Settings',
-    //   routerLink: ['/settings'],
-    //   adminOption: false
-    // },
     {
-      optionName: 'Technologies',
+      optionName: 'Manage Technologies',
       routerLink: ['/admin/technologies/table'],
       adminOption: true
     },
     {
-      optionName: 'Topics',
+      optionName: 'Manage Topics',
       routerLink: ['/admin/topics/table'],
       adminOption: true
     },
     {
-      optionName: 'References',
+      optionName: 'Manage References',
       routerLink: ['/admin/references/table'],
       adminOption: true
     },

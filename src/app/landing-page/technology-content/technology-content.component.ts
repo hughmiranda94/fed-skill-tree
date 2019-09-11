@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SkillsDataService } from 'src/app/skills-data.service';
+import { SkillsDataService } from 'src/app/services/skills-data.service';
 
 @Component({
   selector: 'app-technology-content',

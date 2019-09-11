@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'input-text',
@@ -15,7 +17,11 @@ export class InputTextComponent implements OnInit {
   @Input() inputText
   @Output() inputTextChange = new EventEmitter();
 
-  constructor() { }
+  public isNightMode$: Observable<boolean>;
+
+  constructor(private settingsService: SettingsService) {
+    this.isNightMode$ = this.settingsService.isNightMode();
+  }
 
   ngOnInit() {
   }

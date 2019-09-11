@@ -1,4 +1,22 @@
-.dropdown-dashboard {
+@import "../../styles/constants";
+
+.dropdown-container {
+  input {
+    background-color: transparent;
+    border: 1px solid $fee-border;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: $fee-main-font;
+    padding: 0.5rem;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 1rem rgba($fee-shadow, 0.25);
+    }
+  }
+
+
+  .dropdown-dashboard {
     right: 70px;
     display: flex;
     flex-flow: row-reverse;
@@ -6,17 +24,17 @@
     width: max-content;
     margin-top: 40px;
     position: absolute;
-}
+  }
 
-.drop-list{
+  .drop-list{
     position: absolute;
     list-style: none;
     margin: 0;
     padding: 0;
     background-color: transparent;
-}
+  }
 
-.navbar {
+  .navbar {
     .drop-list{
         padding-right: 60px;
         margin-top: 90px;
@@ -24,9 +42,9 @@
     .drop-item {
         padding: 0
     }
-}
+  }
 
-.form{
+  .form{
     .drop-btn-text {
         width: max-content;
         border: 1px solid;
@@ -37,9 +55,9 @@
     .input-text-drop {
         margin-right: 8px;
     }
-}
+  }
 
-.drop-btn-circle {
+  .drop-btn-circle {
     box-shadow: 0px 2px 4px 2px rgba(76, 76, 76, 1);
     border-radius: 50%;
     display: flex;
@@ -49,21 +67,22 @@
     height: 55px;
     z-index: 1;
     background-color: white;
-}
+  }
 
 
-.drop-btn {
+  .drop-btn {
     display: flex;
-}
+  }
 
-.icon {
+  .icon {
     img {
         height: 40px;
         filter: invert(100%);
     }
-}
+  }
 
-.drop-item {
+  .drop-item {
+    color: $fee-main-font;
     padding: 5px;
     border-style: dotted;
     border-width: 1px;
@@ -75,31 +94,41 @@
       background-color: rgba(255, 255, 255, 1);
       cursor: pointer;
     }
-}
+  }
 
-.text {
+  &.text {
     .drop-btn-text {
         display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
         align-items: center;
-    }
-}
 
-.dropdown-table {
+        .triangle-down {
+          margin-right: 0.5rem
+        }
+    }
+  }
+
+  .triangle-container {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown-table {
     .triangle-down {
-        margin-right: 12px;
+        margin: 0.5rem;
     }
-}
+  }
 
 
-.dropdown-form {
-    width: 156px;
+  .dropdown-form {
     display: flex;
     flex-flow: column;
-    margin: 16px;
 
     .triangle-down {
-        margin-right: 4px;
-        margin-left: 4px;
+        margin: 0.5rem;
     }
 
     .drop-list{
@@ -107,54 +136,77 @@
     }
 
     .drop-list {
-        margin-top: 52px;
-//        position: unset;
+      margin-top: 52px;
     }
 
-}
+  }
 
-.input-form.drop-btn-text.tag {
-    border: navajowhite;
+  .input-form.drop-btn-text.tag {
     background-color: transparent;
 
     .input-text-drop{
-        width: 156px;
+        width: 100%;
     }
-}
+  }
 
-.input-form {
-    background-color: gainsboro;
-    border: 1px solid;
+  .input-form {
     border-radius: 4px;
     display: flex;
     flex-flow: row;
-}
+    margin-top: 0.5rem;
 
-.label-drop {
-    margin-bottom: 8px
-}
+    input {
+      height: 2rem;
+    }
+  }
+
+  .label-drop {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $fee-second-font;
+  }
 
 
-.input-text-drop {
-    width: 136px;
-}
+  .input-text-drop {
+    width: 100%;
+  }
 
-.drop-disabled {
+  .drop-disabled {
     .show-cursor-pointer {
         cursor: auto;
     }
-}
+  }
+
+  .brop-text {
+    text-align: left;
+  }
 
 
-.night-mode {
-  .drop-item {
-    background-color: rgba(20, 20, 20, 0.9);
-    transition: all 0.2s;
+  &.night-mode {
+    input {
+      border: 1px solid $fee-border-night;
+      color: $fee-main-font-night;
+
+      &:focus {
+        box-shadow: 0 0 1rem rgba($fee-shadow-night, 0.25);
+      }
+    }
+
+    .label-drop {
+      color: $fee-second-font-night;
+    }
+
+    .drop-item {
+      color: $fee-main-font-night;
+      background-color: rgba(20, 20, 20, 0.9);
+      transition: all 0.2s;
 
 
-    &:hover {
-      background-color: rgba(20, 20, 20, 1);
-      cursor: pointer;
+      &:hover {
+        background-color: rgba(20, 20, 20, 1);
+        cursor: pointer;
+      }
     }
   }
 }

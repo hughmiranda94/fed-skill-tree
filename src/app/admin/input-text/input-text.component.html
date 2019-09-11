@@ -1,4 +1,4 @@
-<div class="input-format">
+<div class="input-format" [ngClass]="{'night-mode': (isNightMode$ | async)}">
   <label class="label-input" for="{{id}}">{{label}}</label>
   <input type="text" id="{{id}}" [(ngModel)]="inputText" (ngModelChange)="inputTextChange.emit(this.inputText)" [disabled] = "disabledText">
 </div>

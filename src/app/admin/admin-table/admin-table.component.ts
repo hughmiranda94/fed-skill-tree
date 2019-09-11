@@ -5,7 +5,7 @@ import { AdminService } from '../admin.service';
 import { HelperService } from '../../services/helper.service';
 import { TypeDataResolverService } from 'src/app/admin/resolvers/admin-resolver.service';
 import { Observable } from 'rxjs';
-import { SettingsService } from 'src/app/settings.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'admin-table',

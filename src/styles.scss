@@ -79,15 +79,11 @@ body {
 .triangle-down {
   width: 0;
   height: 0;
-  border-top: 8px solid #868686;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+  border-top: 1rem solid #868686;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
 }
 
 .show-cursor-pointer {
   cursor: pointer;
-}
-
-.input-form {
-  width: 156px;
 }

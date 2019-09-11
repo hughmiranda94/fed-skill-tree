@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SettingsService } from './settings.service';
+import { SettingsService } from './services/settings.service';
 import { Subject, Observable } from 'rxjs';
 import { HelperService } from './services/helper.service';
 
@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(private settingsService: SettingsService, private helper: HelperService) {
     this.isNightMode$ = this.settingsService.isNightMode();
   }
-  
+
   ngOnInit() {
     this.sections  = this.helper.dropdownObjectToArray(this.sections, 'link', 'url')
   }
